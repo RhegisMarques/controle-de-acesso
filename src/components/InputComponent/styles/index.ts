@@ -7,9 +7,6 @@ interface IInputProps{
 
 export const InputContainer = styled.div<IInputProps>`
 position: relative;
-margin-top: 10px;
-margin-left: 10px;
-
 
 
 svg{
@@ -27,11 +24,11 @@ svg{
 span{
   position: absolute;
   z-index: 1;
+  color: ${({focus})=> focus ? "#5443d7" : "#9a9c9e" };
   left: 40px;
   top: ${({focus})=> focus ? -9 : 12 }px;
   font-size: ${({focus})=> focus ? .8 : 1}rem;
   padding: 0 ${({focus})=> focus ? 2 : 0 }px;
-  color: var(--grey-200);
   background-color: white;
   transition: all .2s;
   display: block;

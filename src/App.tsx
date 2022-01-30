@@ -1,12 +1,13 @@
 import React from 'react';
 import { GlobalStyles } from './components/GlobalStyles';
-import {InputComponent} from "./components/InputComponent"
+import { Login } from './components/Login';
+
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <InputComponent placeHolder="Login" type='text' iconType='password'/>
+      <Login />
     </>
   );
 }

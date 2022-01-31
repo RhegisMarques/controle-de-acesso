@@ -11,8 +11,14 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 
-& div:nth-child(2){
-  margin-top: 20px;
+
+& div input{
+  margin-bottom: 15px;
+}
+
+
+button, div{
+  width: 70%;
 }
 
 `;

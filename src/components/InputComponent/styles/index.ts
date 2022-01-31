@@ -51,7 +51,7 @@ outline: none;
 transition: all .2s;
 position: relative;
 color: var(--grey-200);
-
+width: 100%;
 
 :hover{
   border-color:var(--violet);

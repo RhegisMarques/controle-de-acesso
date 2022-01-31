@@ -8,7 +8,7 @@ width: 100%;
 
 
 
-export const ImgLuizaLabsStyled = styled.img`
+export const ImgBannerStyled = styled.img`
 
 
 display: block;

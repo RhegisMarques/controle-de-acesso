@@ -24,7 +24,7 @@ svg{
 span{
   position: absolute;
   z-index: 1;
-  color: ${({focus})=> focus ? "#5443d7" : "#9a9c9e" };
+  color: ${({focus})=> focus ? "#0390d5" : "#9a9c9e" };
   left: 40px;
   top: ${({focus})=> focus ? -9 : 12 }px;
   font-size: ${({focus})=> focus ? .8 : 1}rem;
@@ -54,20 +54,20 @@ color: var(--grey-200);
 width: 100%;
 
 :hover{
-  border-color:var(--violet);
+  border-color:var(--blue);
 }
 
 ::selection{
-  background-color: var(--violet);
+  background-color: var(--blue);
   color: var(--white)
 }
 
 :focus + svg, :hover + svg{
-  color: var(--violet);
+  color: var(--blue);
 }
 
 :focus {
-  box-shadow: 0px 0px 5px var(--violet);
+  box-shadow: 0px 0px 5px var(--blue);
 }
 
 

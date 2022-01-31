@@ -5,7 +5,7 @@ export const ButtonLoginStyled = styled.button`
 
 display: block;
 border-radius: 5px;
-background-color: var(--violet);
+background-color: var(--blue);
 color: var(--white);
 width: 100%;
 padding: 10px;

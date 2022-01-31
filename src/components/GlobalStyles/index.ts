@@ -10,7 +10,8 @@ export const GlobalStyles = createGlobalStyle`
   --gray-200: #9a9c9e;
   --gray-400: #5d5e62;
   --brown: #4e3a38;
-  --violet: #5443d7;
+  --blue: #0390d5;
+  /* --violet: #5443d7; */
   --salmon-400: #a37f7e;
 }
 

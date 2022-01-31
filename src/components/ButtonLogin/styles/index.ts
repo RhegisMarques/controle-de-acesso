@@ -9,7 +9,7 @@ background-color: var(--violet);
 color: var(--white);
 width: 100%;
 padding: 10px;
-font-weight: 400;
+font-weight: 500;
 border: none;
 font-size: 1.125rem;
 transition: filter .2s;

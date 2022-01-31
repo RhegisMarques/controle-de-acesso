@@ -5,11 +5,13 @@ export const LoginContainer = styled.div`
 
 max-width: 30%;
 height: 100vh;
-border: 1px solid black;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+background-color: var(--white);
+box-shadow: 0 0 10px var(--gray-200);
+
 
 
 & div input{

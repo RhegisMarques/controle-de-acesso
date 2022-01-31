@@ -7,5 +7,5 @@ interface IButtonProps {
 
 
 export const ButtonLogin = (props:IButtonProps) => {
-  return <ButtonLoginStyled>{props.value}</ButtonLoginStyled>;
+  return <ButtonLoginStyled type='button'>{props.value}</ButtonLoginStyled>;
 };

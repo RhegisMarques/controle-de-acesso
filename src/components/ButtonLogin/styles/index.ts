@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { darken } from "polished";
 
 
 export const ButtonLoginStyled = styled.button`
@@ -12,13 +13,13 @@ padding: 10px;
 font-weight: 500;
 border: none;
 font-size: 1.125rem;
-transition: filter .2s;
+transition: background-color .2s;
 
 :hover {
-  filter: brightness(.9);
+  background-color: ${ darken(0.04, "#0390d5")};
 }
 
 :active{
-  filter: brightness(.7)
+  background-color: ${ darken(0.1, "#0390d5")};
 }
 `;

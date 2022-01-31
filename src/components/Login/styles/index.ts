@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export const LoginContainer = styled.div`
 
-max-width: 30%;
+min-width: 30%;
 height: 100vh;
 display: flex;
 flex-direction: column;
@@ -23,4 +23,10 @@ button, div{
   width: 70%;
 }
 
+`;
+
+
+
+export const LoginPageContainer = styled.div`
+display: flex;
 `;

@@ -1,9 +1,9 @@
 import React from 'react';
-import { ButtonLogin } from '../ButtonLogin';
-import { InputComponent } from '../InputComponent';
-import { LogoLogin } from '../LogoLogin';
+import { ButtonLogin } from '../../components/ButtonLogin';
+import { InputComponent } from '../../components/InputComponent';
+import { LogoLogin } from '../../components/LogoLogin';
 import { LoginContainer } from './styles';
-import { BannerLogin } from '../BannerLogin';
+import { BannerLogin } from '../../components/BannerLogin';
 import { LoginPageContainer } from './styles';
 
 export const Login = () => {

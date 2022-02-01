@@ -10,7 +10,7 @@ padding: 0;
 export const LogoStyled= styled.img`
 
 display: block;
-width: 50%;
+width: 40%;
 margin: 0 auto;
 
 `;

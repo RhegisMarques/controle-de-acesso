@@ -1,9 +1,10 @@
 import styled from "styled-components"
+import {transparentize} from "polished"
 
 
 export const LoginContainer = styled.div`
-
-min-width: 30%;
+position: relative;
+min-width: 400px;
 height: 100vh;
 display: flex;
 flex-direction: column;
@@ -13,13 +14,16 @@ background-color: var(--white);
 box-shadow: 0 0 10px var(--gray-200);
 
 
+.containerLogoLogin{
+  margin-bottom: 1rem;
+}
 
-& div input{
-  margin-bottom: 15px;
+& label{
+  margin-bottom: 1.5rem;
 }
 
 
-button, div{
+button, label{
   width: 70%;
 }
 
@@ -29,4 +33,21 @@ button, div{
 
 export const LoginPageContainer = styled.div`
 display: flex;
+
+position: relative;
+
+.svgLoading{
+  background-color: ${transparentize(.2, "#f2f6f9")};
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 `;

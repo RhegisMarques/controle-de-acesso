@@ -1,11 +1,6 @@
 import React from 'react';
-import { ImgBannerStyled, BannerContainer } from './styles';
-import banner from "../../assets/img/banner.jpg"
+import { BannerContainer } from './styles';
 
 export const BannerLogin = () => {
-  return (
-    <BannerContainer>
-      <ImgBannerStyled src={banner} />
-    </BannerContainer>
-  )
-};
+  return <BannerContainer />
+  };

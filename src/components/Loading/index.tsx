@@ -10,5 +10,9 @@ interface ILoadingProps {
 }
 
 export const Loading = ({type, color, w, h}: ILoadingProps) => {
-  return <ReactLoading type={type} color={color} height={h} width={w} />;
-};
+  return(
+    <div className="svgLoading">
+      <ReactLoading  type={type} color={color} height={h} width={w} />
+    </div>
+    ) 
+  };

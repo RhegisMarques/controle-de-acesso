@@ -2,22 +2,23 @@ import styled from "styled-components";
 
 
 interface IInputProps{
-  focus: boolean
+  focus: boolean;
+  value: string;
 }
 
-export const InputContainer = styled.div<IInputProps>`
+
+
+export const InputLabelStyled = styled.label<IInputProps>`
+
 position: relative;
+width: 100%;
 
+:hover > svg{
+  color: var(--blue)
+}
 
-svg{
-  position: absolute;
-  top: 11px;
-  left: 10px;
-  font-size: 1.25rem;
-  transition: all .2s;
-
-
-
+:hover > span{
+  color: var(--blue); 
 }
 
 
@@ -26,22 +27,27 @@ span{
   z-index: 1;
   color: ${({focus})=> focus ? "#0390d5" : "#9a9c9e" };
   left: 40px;
-  top: ${({focus})=> focus ? -9 : 12 }px;
-  font-size: ${({focus})=> focus ? .8 : 1}rem;
-  padding: 0 ${({focus})=> focus ? 2 : 0 }px;
+  top: ${(props)=> props.focus || props.value ? -9 : 12 }px;
+  font-size: ${(props)=> props.focus || props.value ? .8 : 1}rem;
   background-color: white;
   transition: all .2s;
   display: block;
   pointer-events: none;
 }
 
+svg{
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  font-size: 1.25rem;
+  transition: all .2s;
+}
+
 `;
 
 
 
-
 export const InputStyled = styled.input`
-
 border-radius: 5px;
 font-size: 1.125rem;
 padding: 10px 10px 10px 40px ;
@@ -61,9 +67,10 @@ width: 100%;
   color: var(--white)
 }
 
-:focus + svg, :hover + svg{
+:focus + svg{
   color: var(--blue);
 }
+
 
 :focus {
   box-shadow: 0px 0px 5px var(--blue);
@@ -73,4 +80,7 @@ width: 100%;
 
 
 `;
+
+
+
 

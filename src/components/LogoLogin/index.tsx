@@ -5,7 +5,7 @@ import logo from "../../assets/img/logo.png"
 export const LogoLogin = () => {
   return (
     <ContainerLogo >
-      <LogoStyled src={logo} alt='Logo' title='Logo'/>
+      <LogoStyled src={logo} alt='Logo' title='Logo' className='containerLogoLogin'/>
     </ ContainerLogo>
     )
   };

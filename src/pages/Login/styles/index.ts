@@ -18,7 +18,7 @@ box-shadow: 0 0 10px var(--gray-200);
 }
 
 & label{
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 

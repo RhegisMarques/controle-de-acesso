@@ -3,7 +3,9 @@ import React, { createContext } from "react";
 
 interface IUserContextProps {
   load: boolean;
-  setLoad: ( load: boolean )=> void
+  setLoad: ( load: boolean )=> void;
+  login: boolean;
+  setLogin: (isLogin: boolean) => void
 }
 
 interface IUserContextProviderProps {
@@ -16,7 +18,11 @@ export const UserContext = createContext<IUserContextProps>({} as IUserContextPr
 
 export const UserContextProvider = (props: IUserContextProviderProps) => {
   const [load, setLoad] = React.useState<boolean>(true)
+  const [login, setLogin] = React.useState<boolean>(false)
 
 
-  return <UserContext.Provider value={{load, setLoad}}>{props.children}</ UserContext.Provider>
+  return <UserContext.Provider value={{
+    load, setLoad,
+    login, setLogin
+  }}>{props.children}</ UserContext.Provider>
 }

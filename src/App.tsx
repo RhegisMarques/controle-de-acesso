@@ -6,9 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Home } from './pages/Home';
 import {UserContextProvider} from "./contexts/GlobalContext"
 
-
 function App() {
-
+  
   return (
     <>
       <GlobalStyles />
@@ -22,7 +21,7 @@ function App() {
         </BrowserRouter>
       </UserContextProvider>
     </>
-  );
-}
-
-export default App;
+    );
+  }
+  
+  export default App;

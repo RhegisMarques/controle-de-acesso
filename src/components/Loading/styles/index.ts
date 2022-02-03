@@ -20,6 +20,6 @@ z-index: 2;
 height: 100vh;
 justify-content: center;
 align-items: center;
-transition: all 5s;
+transition: all 5s linear;
 
 `;

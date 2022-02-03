@@ -15,7 +15,7 @@ export const Loading = ({type, color, w, h}: ILoadingProps) => {
   const {load} = React.useContext(UserContext)
 
   return(
-    <LoadContainer load={load}>
+    <LoadContainer className={load ? "visibled" : ""}>
       <ReactLoading  type={type} color={color} height={h} width={w} />
     </LoadContainer>
     ) 

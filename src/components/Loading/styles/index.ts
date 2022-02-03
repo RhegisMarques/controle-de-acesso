@@ -23,6 +23,7 @@ transition: all .3s;
 
 &.visibled{
   opacity: 1;
+  pointer-events: auto;
   display: flex;
 }
 `;

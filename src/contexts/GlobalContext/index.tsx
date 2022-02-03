@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { createContext } from "react";
+import { AxiosApi } from "../../services/AxiosApi";
 
 
 interface IUserContextProps {
@@ -19,8 +21,17 @@ export const UserContext = createContext<IUserContextProps>({} as IUserContextPr
 export const UserContextProvider = (props: IUserContextProviderProps) => {
   const [load, setLoad] = React.useState<boolean>(true)
   const [login, setLogin] = React.useState<boolean>(false)
+  
+  
+  React.useEffect(()=> {
+    setLogin(false)
+    let token = window.sessionStorage.getItem("token")
+    if(token) setLogin(true)
+  }, [] )
 
 
+
+  
   return <UserContext.Provider value={{
     load, setLoad,
     login, setLogin

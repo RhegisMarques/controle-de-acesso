@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route, Routes, Navigate , Outlet} from 'react-router-dom';
-import { ProtectedRoute } from '../../components/ProtectedRoute';
+import { Route, Routes, Navigate} from 'react-router-dom';
 import { Login } from './Login';
 import { GlobalContext } from '../../contexts/GlobalContext';
 

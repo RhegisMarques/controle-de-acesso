@@ -11,7 +11,7 @@ import {GlobalContext} from "../../../contexts/GlobalContext"
 export const Login = () => {
   const userValue = React.useRef<HTMLInputElement>(null) 
   const passwordValue = React.useRef<HTMLInputElement>(null) 
-  const {setLoad, login} = React.useContext(GlobalContext)
+  const {setLoad, setLogin} = React.useContext(GlobalContext)
 
   async function handleSubmit(e: FormEvent){
     e.preventDefault()
@@ -23,9 +23,10 @@ export const Login = () => {
       
       const {data} = await AxiosApi.post("/login", {username, password})
       window.sessionStorage.setItem("token", data.token)
-      window.location.reload()
+      setLogin(true)
     } catch (error) {
       console.log(error)
+      setLogin(false)
     }
     finally{
       setLoad(false)

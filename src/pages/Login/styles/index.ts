@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 
-export const LoginContainer = styled.div`
+export const LoginContainer = styled.form`
 position: relative;
 min-width: 400px;
 height: 100vh;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import {InputLabelStyled, InputStyled} from "./styles"
@@ -8,11 +8,12 @@ type InputProps = {
   placeHolder: string;
   type: string;
   iconType: "login" | "password";
+  inpRef: RefObject<HTMLInputElement>
 }
 
 
 
-export const InputComponent = ({iconType, placeHolder, type}: InputProps) => {
+export const InputComponent = ({iconType, placeHolder, type, inpRef}: InputProps) => {
   const [focus, setFocus] = React.useState(false)
   const [value, setValue] = React.useState("")
   
@@ -39,11 +40,13 @@ export const InputComponent = ({iconType, placeHolder, type}: InputProps) => {
     <InputLabelStyled value={value} focus={focus}>
       <span>{placeHolder}</span>
       <InputStyled 
+        ref={inpRef}
         type={type} 
         onFocus={handleFocus}
         onBlur={handleBlur}
         value={value}
         onChange={handleValue}
+        required
         />
       {icons[`${iconType}`]}
     </ InputLabelStyled>

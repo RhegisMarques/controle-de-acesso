@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Route } from 'react-router-dom';
-import {UserContext} from "../../contexts/GlobalContext"
+import { GlobalContext } from "../../contexts/GlobalContext"
+import { Login } from '../../pages/Login';
 
 
 
@@ -11,6 +12,8 @@ interface IRouteProps {
 }
 
 export const ProtectedRoute = (props: IRouteProps) => {
+  const {login} = React.useContext(GlobalContext)
 
-  return <Route {...props} />
+
+  return login ? <Route {...props} /> : <Login />
 };

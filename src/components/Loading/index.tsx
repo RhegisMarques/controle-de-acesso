@@ -2,7 +2,7 @@ import  ReactLoading, {  LoadingType }  from "react-loading"
 import { LoadContainer } from "./styles";
 
 import React from 'react';
-import { UserContext } from "../../contexts/GlobalContext";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 interface ILoadingProps {
   type: LoadingType
@@ -12,7 +12,7 @@ interface ILoadingProps {
 }
 
 export const Loading = ({type, color, w, h}: ILoadingProps) => {
-  const {load} = React.useContext(UserContext)
+  const {load} = React.useContext(GlobalContext)
 
   return(
     <LoadContainer className={load ? "visibled" : ""}>

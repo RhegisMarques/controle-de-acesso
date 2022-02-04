@@ -4,14 +4,14 @@ import { Login } from './pages/Login';
 import {Loading} from "./components/Loading"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Home } from './pages/Home';
-import {UserContextProvider} from "./contexts/GlobalContext"
+import {GlobalContextProvider} from "./contexts/GlobalContext"
 
 function App() {
   
   return (
     <>
       <GlobalStyles />
-      <UserContextProvider >
+      <GlobalContextProvider >
         <Loading color="#0390d5" type='bars' w={50} h={50}/>
         <BrowserRouter >
           <Routes>
@@ -19,7 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
           </Routes>
         </BrowserRouter>
-      </UserContextProvider>
+      </GlobalContextProvider>
     </>
     );
   }

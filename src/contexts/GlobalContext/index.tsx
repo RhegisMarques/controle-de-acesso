@@ -1,25 +1,23 @@
-import axios from "axios";
 import React, { createContext } from "react";
-import { AxiosApi } from "../../services/AxiosApi";
 
 
-interface IUserContextProps {
+interface IGlobaContextProps {
   load: boolean;
   setLoad: ( load: boolean )=> void;
   login: boolean;
   setLogin: (isLogin: boolean) => void
 }
 
-interface IUserContextProviderProps {
+interface IGlobalContextProviderProps {
   children : React.ReactNode
 }
 
 
-export const UserContext = createContext<IUserContextProps>({} as IUserContextProps)
+export const GlobalContext = createContext<IGlobaContextProps>({} as IGlobaContextProps)
 
 
-export const UserContextProvider = (props: IUserContextProviderProps) => {
-  const [load, setLoad] = React.useState<boolean>(true)
+export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
+  const [load, setLoad] = React.useState<boolean>(false)
   const [login, setLogin] = React.useState<boolean>(false)
   
   
@@ -28,12 +26,14 @@ export const UserContextProvider = (props: IUserContextProviderProps) => {
     let token = window.sessionStorage.getItem("token")
     if(token) setLogin(true)
   }, [] )
-
-
-
   
-  return <UserContext.Provider value={{
+  
+  
+  
+  return <GlobalContext.Provider value={{
     load, setLoad,
     login, setLogin
-  }}>{props.children}</ UserContext.Provider>
+  }}>
+    {props.children}
+  </ GlobalContext.Provider>
 }

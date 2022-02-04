@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Route } from 'react-router-dom';
 import { GlobalContext } from "../../contexts/GlobalContext"
-import { Login } from '../../pages/Login';
+import { Login } from '../../pages/Admin/Login';
 
 
 

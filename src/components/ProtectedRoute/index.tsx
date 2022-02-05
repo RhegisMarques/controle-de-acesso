@@ -1,19 +1,11 @@
-import React, { ReactNode } from 'react';
-import { Route } from 'react-router-dom';
+import React from 'react';
 import { GlobalContext } from "../../contexts/GlobalContext"
 import { Login } from '../../pages/Admin/Login';
 
 
-
-
-interface IRouteProps {
-  path: string;
-  element: ReactNode
-}
-
-export const ProtectedRoute = (props: IRouteProps) => {
+export const ProtectedRoute = ({children}:{children: JSX.Element}) => {
   const {login} = React.useContext(GlobalContext)
+  
 
-
-  return login ? <Route {...props} /> : <Login />
+  return login ? children : <Login />
 };

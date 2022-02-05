@@ -7,13 +7,22 @@ import { BannerLogin } from '../../../components/BannerLogin';
 import { LoginPageContainer } from './styles';
 import { AxiosApi } from '../../../services/AxiosApi';
 import {GlobalContext} from "../../../contexts/GlobalContext"
+import { useNavigate } from 'react-router';
 
 export const Login = () => {
   const userValue = React.useRef<HTMLInputElement>(null) 
   const passwordValue = React.useRef<HTMLInputElement>(null) 
-  const {setLoad, setLogin} = React.useContext(GlobalContext)
-
+  const {setLoad, setLogin, login} = React.useContext(GlobalContext)
+  const navegate = useNavigate()
+  
+  React.useEffect( ()=> {
+    if(login) navegate("/admin", {replace: true})
+  }, [login, navegate] )
+  
+  
   async function handleSubmit(e: FormEvent){
+    
+    
     e.preventDefault()
     const username = userValue.current?.value
     const password = passwordValue.current?.value
@@ -24,6 +33,7 @@ export const Login = () => {
       const {data} = await AxiosApi.post("/login", {username, password})
       window.sessionStorage.setItem("token", data.token)
       setLogin(true)
+      navegate("/admin", {replace: true})
     } catch (error) {
       console.log(error)
       setLogin(false)

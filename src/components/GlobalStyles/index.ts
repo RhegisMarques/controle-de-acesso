@@ -19,6 +19,15 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
 * {
   padding: 0;
   margin: 0;

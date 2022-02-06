@@ -8,11 +8,12 @@ import { GlobalContext } from '../../contexts/GlobalContext';
 
 
 export const MenuAdminLinks = () => {
-  const {setLogin} = useContext(GlobalContext)
+  const {setLogin, setMainAdminHomeWidth} = useContext(GlobalContext)
   
   function handleLogout(){
     window.sessionStorage.removeItem("token")
     setLogin(false)
+    setMainAdminHomeWidth(40)
   }
   
   

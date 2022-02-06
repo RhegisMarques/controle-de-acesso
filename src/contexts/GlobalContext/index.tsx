@@ -1,6 +1,17 @@
 import React, { createContext } from "react";
 
 
+type UserProps = {
+  id: string,
+  identificacao: string,
+  imgName?: string,
+  imgPath?: string,
+  username?: string, 
+  password?: string,
+  nome: string, 
+  cargo?: string
+}
+
 interface IGlobaContextProps {
   load: boolean;
   setLoad: ( load: boolean )=> void;
@@ -8,6 +19,8 @@ interface IGlobaContextProps {
   setLogin: (isLogin: boolean) => void;
   mainAdminHomeWidth: number;
   setMainAdminHomeWidth: (w:number) => void;
+  userData: UserProps,
+  setUserData: (data: UserProps)=>void
 }
 
 interface IGlobalContextProviderProps {
@@ -22,7 +35,7 @@ export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
   const [load, setLoad] = React.useState<boolean>(false)
   const [login, setLogin] = React.useState<boolean>(false)
   const [mainAdminHomeWidth, setMainAdminHomeWidth] = React.useState<number>(40)
-  
+  const [userData, setUserData] = React.useState({} as UserProps)  
   
   React.useEffect(()=> {
     setLogin(false)
@@ -34,7 +47,8 @@ export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
   return <GlobalContext.Provider value={{
     load, setLoad,
     login, setLogin,
-    mainAdminHomeWidth, setMainAdminHomeWidth
+    mainAdminHomeWidth, setMainAdminHomeWidth,
+    userData, setUserData
   }}>
     {props.children}
   </ GlobalContext.Provider>

@@ -7,8 +7,7 @@ import { AdminRoutes } from '../../../routes/Protectedes/AdminRoutes';
 
 
 export const Admin = () => {
-const { mainAdminHomeWidth } = useContext(GlobalContext)
-
+  const { mainAdminHomeWidth} = useContext(GlobalContext)
   return (
     <AdminContainer>
       <MenuAdmin />

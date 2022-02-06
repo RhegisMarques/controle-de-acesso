@@ -4,7 +4,7 @@ import {createGlobalStyle} from "styled-components"
 export const GlobalStyles = createGlobalStyle`
 
 :root {
-  --white: #f2f6f9;
+  --white: #ededed;
   --black: #060709;
   --salmon-200: #d9c7ae;
   --gray-200: #9a9c9e;
@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
 
 body{
   font-family: 'Roboto', sans-serif;
+  background-color: var(--white);
 }
 
 li{

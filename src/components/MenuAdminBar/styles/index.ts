@@ -17,5 +17,8 @@ overflow: hidden;
 }
 
 
+.PerfilUserContainer{
+  margin: 10px auto 40px;
+}
 
 `;  

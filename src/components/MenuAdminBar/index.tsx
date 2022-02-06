@@ -2,6 +2,7 @@ import React from 'react';
 import {NavMenuContainer} from "./styles"
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { MenuAdminLinks } from '../MenuAdminLinks';
+import { PerfilUser } from '../PerfilUser';
 
 
 export const MenuAdmin = () => {
@@ -24,9 +25,9 @@ export const MenuAdmin = () => {
         onMouseOut={handleMouseDown} 
         onMouseOver={handleMouseOver}>
 
-
+        <PerfilUser />
         <MenuAdminLinks />
-
+        
       </NavMenuContainer>
     </>
     )

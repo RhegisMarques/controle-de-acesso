@@ -10,9 +10,10 @@ import {GlobalContext} from "../../../contexts/GlobalContext"
 import { useNavigate } from 'react-router';
 
 export const Login = () => {
+  
   const userValue = React.useRef<HTMLInputElement>(null) 
   const passwordValue = React.useRef<HTMLInputElement>(null) 
-  const {setLoad, setLogin, login} = React.useContext(GlobalContext)
+  const {setLoad, setLogin, login, setUserData, userData} = React.useContext(GlobalContext)
   const navegate = useNavigate()
   
   React.useEffect( ()=> {
@@ -33,6 +34,9 @@ export const Login = () => {
       const {data} = await AxiosApi.post("/login", {username, password})
       window.sessionStorage.setItem("token", data.token)
       setLogin(true)
+      
+      setUserData(data.user)
+            
       navegate("/admin", {replace: true})
     } catch (error) {
       console.log(error)

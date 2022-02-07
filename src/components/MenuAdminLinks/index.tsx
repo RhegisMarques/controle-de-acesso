@@ -22,7 +22,7 @@ export const MenuAdminLinks = () => {
   
   return( 
     
-    <LinksContainer>
+    <LinksContainer className='menuAdminLinks'>
       <LinksContent>
         <NavLink to="/admin/colaboradores" >
           <FaUsers />

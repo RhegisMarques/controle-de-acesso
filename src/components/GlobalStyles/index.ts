@@ -13,6 +13,7 @@ export const GlobalStyles = createGlobalStyle`
   --blue: #0390d5;
   /* --violet: #5443d7; */
   --salmon-400: #a37f7e;
+  --text: #252b38;
 }
 
 body{

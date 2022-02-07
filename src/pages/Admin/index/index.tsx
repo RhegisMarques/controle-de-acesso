@@ -4,6 +4,7 @@ import { MenuAdmin } from '../../../components/MenuAdminBar';
 import { AdminContainer, AdminContent } from './styles';
 import { GlobalContext } from '../../../contexts/GlobalContext';
 import { AdminRoutes } from '../../../routes/Protectedes/AdminRoutes';
+import { PerfilUserBar } from '../../../components/PerfilUserBar';
 
 
 export const Admin = () => {
@@ -11,6 +12,7 @@ export const Admin = () => {
   return (
     <AdminContainer>
       <MenuAdmin />
+      <PerfilUserBar />
       <AdminContent sizeW={mainAdminHomeWidth}>
         <Routes>
           <Route path="*" element={ <AdminRoutes />} />

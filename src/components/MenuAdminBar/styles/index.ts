@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
+interface ILogoMlProps {
+  sizeBar: number
+}
 
-
-export const NavMenuContainer = styled.nav`
+export const NavMenuContainer = styled.nav<ILogoMlProps>`
 
 width: 40px;
 height: 100vh;
@@ -16,9 +18,17 @@ overflow: hidden;
   width: 200px;
 }
 
-
-.PerfilUserContainer{
-  margin: 10px auto 40px;
+.logoMl{
+  width: 200px;
+  display: block;
+  opacity: ${ (props)=> props.sizeBar === 40 ? 0 : 1  };
+  transition: all .2s;
 }
+
+.menuAdminLinks{
+  margin-top: 30px;
+}
+
+
 
 `;  

@@ -2,11 +2,11 @@ import React from 'react';
 import {NavMenuContainer} from "./styles"
 import { GlobalContext } from '../../contexts/GlobalContext';
 import { MenuAdminLinks } from '../MenuAdminLinks';
-import { PerfilUser } from '../PerfilUser';
+import LogoMl from "../../assets/img/logoMl.png"
 
 
 export const MenuAdmin = () => {
-  const {setMainAdminHomeWidth} = React.useContext(GlobalContext)
+  const {setMainAdminHomeWidth, mainAdminHomeWidth} = React.useContext(GlobalContext)
   
   function handleMouseOver(){
     setMainAdminHomeWidth(200)
@@ -22,10 +22,10 @@ export const MenuAdmin = () => {
     <>
       <NavMenuContainer 
         className='containerMenuAdmin' 
+        sizeBar={mainAdminHomeWidth}
         onMouseOut={handleMouseDown} 
         onMouseOver={handleMouseOver}>
-
-        <PerfilUser />
+        <img src={LogoMl} alt="" className='logoMl'/>
         <MenuAdminLinks />
         
       </NavMenuContainer>

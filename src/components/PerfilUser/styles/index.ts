@@ -1,24 +1,29 @@
 import styled from "styled-components";
 
 
-interface PerfilUserProps {
-  imgSize: number
+
+
+
+export const PerfilUserContainer = styled.div`
+display: inline-block;
+
+
+span {
+  color: var(--gray-400);
+  margin: 0 10px;
 }
 
-export const PerfilUserContainer = styled.div<PerfilUserProps>`
-transition: all .2s;
-width: ${(props)=> props.imgSize === 40 ?  props.imgSize - 10 : props.imgSize - 100 }px;
-margin: 0 auto;
 
+.gapPerfil{
+  display: flex;
+  align-items: center;
+}
 `;
 
 
 export const PerfilUserImg = styled.img`
 
-width: 100%;
+width: 45px;
 display: block;
-
-
-
 
 `;

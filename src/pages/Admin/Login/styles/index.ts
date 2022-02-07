@@ -14,7 +14,7 @@ box-shadow: 0 0 10px var(--gray-200);
 
 
 .containerLogoLogin{
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem auto;
 }
 
 & label{

@@ -1,5 +1,6 @@
 import React from 'react';
-import { ButtonLogin } from '../../../components/ButtonLogin';
+import { ButtonLogin } from '../../../components/ButtonDefault';
+import { SearchComponent } from '../../../components/SearchComponent';
 import { ColaboradoresContainerStyled, WrapColaboradoresTitleStyled } from './styles';
 
 export const Colaboradores = () => {
@@ -9,7 +10,7 @@ export const Colaboradores = () => {
         <h2>Colaboradores</h2>
         <ButtonLogin  value='Novo Colaborador' />
       </WrapColaboradoresTitleStyled>
-    
+      <SearchComponent />
     </ColaboradoresContainerStyled>
     )
   };

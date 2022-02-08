@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { darken } from "polished";
 
 
-export const ButtonLoginStyled = styled.button`
+export const ButtonDefaultStyled = styled.button`
 
 display: block;
 border-radius: 5px;

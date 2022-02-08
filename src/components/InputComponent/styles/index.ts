@@ -9,7 +9,7 @@ interface IInputProps{
 
 
 export const InputLabelStyled = styled.label<IInputProps>`
-
+display: flex;
 position: relative;
 width: 100%;
 

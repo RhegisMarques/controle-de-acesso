@@ -2,13 +2,14 @@ import React, { RefObject } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import {InputLabelStyled, InputStyled} from "./styles"
+import {ImSearch} from 'react-icons/im'
 
 
 type InputProps = {
   placeHolder: string;
   type: string;
-  iconType: "login" | "password";
-  inpRef: RefObject<HTMLInputElement>
+  iconType: "login" | "password" | "search";
+  inpRef?: RefObject<HTMLInputElement>
 }
 
 
@@ -19,7 +20,8 @@ export const InputComponent = ({iconType, placeHolder, type, inpRef}: InputProps
   
   const icons = {
     login: <FaUserCircle/>,
-    password: <RiLockPasswordFill/>
+    password: <RiLockPasswordFill/>,
+    search: <ImSearch />
   }
   
   function handleFocus(){

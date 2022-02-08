@@ -40,12 +40,14 @@ export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
   
   React.useEffect(()=> {
     setLogin(false)
+    setLoad(true)
     let token = window.sessionStorage.getItem("token")
     let nome = window.sessionStorage.getItem("nome")
     if(token) {
-      setLogin(true)
       AxiosApi.get("colaboradores/" + nome).then( data => setUserData(data.data[0]) )
+      setLogin(true)
     }
+    setLoad(false)
   }, [] )
   
   

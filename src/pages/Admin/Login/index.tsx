@@ -1,5 +1,5 @@
 import React, { FormEvent } from 'react';
-import { ButtonLogin } from '../../../components/ButtonLogin';
+import { ButtonLogin } from '../../../components/ButtonDefault';
 import { InputComponent } from '../../../components/InputComponent';
 import { LogoLogin } from '../../../components/LogoLogin';
 import { LoginContainer } from './styles';
@@ -13,7 +13,7 @@ export const Login = () => {
   
   const userValue = React.useRef<HTMLInputElement>(null) 
   const passwordValue = React.useRef<HTMLInputElement>(null) 
-  const {setLoad, setLogin, login, setUserData, userData} = React.useContext(GlobalContext)
+  const {setLoad, setLogin, login, setUserData} = React.useContext(GlobalContext)
   const navegate = useNavigate()
   
   React.useEffect( ()=> {

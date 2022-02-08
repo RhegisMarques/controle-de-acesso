@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonLoginStyled } from './styles';
+import { ButtonDefaultStyled } from './styles';
 
 interface IButtonProps {
   value : string
@@ -7,5 +7,5 @@ interface IButtonProps {
 
 
 export const ButtonLogin = (props:IButtonProps) => {
-  return <ButtonLoginStyled type='submit'>{props.value}</ButtonLoginStyled>;
+  return <ButtonDefaultStyled type='submit'>{props.value}</ButtonDefaultStyled>;
 };

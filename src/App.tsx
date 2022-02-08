@@ -6,7 +6,6 @@ import { Home } from './pages/Home';
 import { Admin } from "./pages/Admin/index"
 import {GlobalContextProvider} from "./contexts/GlobalContext"
 import { ProtectedRoute } from './components/ProtectedRoute';
-import { AdminRoutes } from './routes/Protectedes/AdminRoutes';
 
 function App() {
   

@@ -5,6 +5,7 @@ import { AdminContainer, AdminContent } from './styles';
 import { GlobalContext } from '../../../contexts/GlobalContext';
 import { AdminRoutes } from '../../../routes/Protectedes/AdminRoutes';
 import { PerfilUserBar } from '../../../components/PerfilUserBar';
+import { Loading } from '../../../components/Loading';
 
 
 export const Admin = () => {

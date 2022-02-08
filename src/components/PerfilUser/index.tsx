@@ -6,7 +6,7 @@ import { GlobalContext } from '../../contexts/GlobalContext';
 export const PerfilUser = () => {
   const { userData } = React.useContext(GlobalContext)
   
-  console.log(userData)
+ 
   return (
     <PerfilUserContainer className='PerfilUserContainerImg' >
       <div className='gapPerfil'>

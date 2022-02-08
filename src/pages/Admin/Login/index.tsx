@@ -21,7 +21,7 @@ export const Login = () => {
   }, [login, navegate] )
   
   
-  async function handleSubmit(e: FormEvent){
+  async function handleSubmit (e: FormEvent){
     
     
     e.preventDefault()
@@ -33,6 +33,7 @@ export const Login = () => {
       
       const {data} = await AxiosApi.post("/login", {username, password})
       window.sessionStorage.setItem("token", data.token)
+      window.sessionStorage.setItem("nome", data.user.nome)
       setLogin(true)
       
       setUserData(data.user)

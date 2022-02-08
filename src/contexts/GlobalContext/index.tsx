@@ -1,4 +1,5 @@
 import React, { createContext } from "react";
+import { AxiosApi } from "../../services/AxiosApi";
 
 
 type UserProps = {
@@ -40,7 +41,11 @@ export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
   React.useEffect(()=> {
     setLogin(false)
     let token = window.sessionStorage.getItem("token")
-    if(token) setLogin(true)
+    let nome = window.sessionStorage.getItem("nome")
+    if(token) {
+      setLogin(true)
+      AxiosApi.get("colaboradores/" + nome).then( data => setUserData(data.data[0]) )
+    }
   }, [] )
   
   

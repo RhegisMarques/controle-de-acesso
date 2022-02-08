@@ -4,7 +4,7 @@ export const ColaboradoresContainerStyled = styled.div`
 
 width: 95%;
 margin: auto;
-
+color: var(--text)
 
 
 `;
@@ -17,9 +17,16 @@ margin: auto;
 export const WrapColaboradoresTitleStyled = styled.div`
 
 height: 100px;
-line-height: 100px;
-border: 1px solid black;
+display: flex;
+justify-content: space-between;
+align-items: center;
 
+
+
+button{
+  max-width: 200px;
+  max-height: 50px;
+}
 
 
 `;

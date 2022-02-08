@@ -12,7 +12,7 @@ transition: all .2s;
 background-color: white;
 padding: 5px 0 5px ${({paddingSize})=> paddingSize}px;
 box-shadow: 0 0 3px var(--black);
-height: 70px;
+height: 60px;
 
 display: flex;
 justify-content: space-between;

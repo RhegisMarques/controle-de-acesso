@@ -10,7 +10,8 @@ type UserProps = {
   username?: string, 
   password?: string,
   nome: string, 
-  cargo?: string
+  cargo?: string,
+  autorizado?: boolean
 }
 
 interface IGlobaContextProps {

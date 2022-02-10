@@ -1,10 +1,9 @@
 import React from 'react';
-import { ColaboradorContainerStyled, TitlesContentStyled, ColaboradorContentStyled, ColaboradorDataContent } from './styles';
-import {HiChevronRight} from "react-icons/hi"
+import { ColaboradorContainerStyled, TitlesContentStyled} from './styles';
 import {FaReact} from "react-icons/fa"
-import {MdDelete, MdModeEdit} from "react-icons/md"
-
-
+import {ColaboradorUser} from "../ColaboradorUser"
+import { GlobalContext } from "../../contexts/GlobalContext"
+import ReactModal from "react-modal"
 
 
 
@@ -43,18 +42,15 @@ interface IColaboradorProps {
 
 
 
+
+
 export const ColaboradorComponent = ({data}: {data: IColaboradorProps[] | []}) => {
-  const [isClicked, setIsClicked] = React.useState(false)
-  
-  
-  function toggleClick(){
-    setIsClicked( ()=> !isClicked )
-  }
-  
+  const {modalIsOpen, setModalIsOpen} = React.useContext(GlobalContext)
   
   
   return (
     <ColaboradorContainerStyled> 
+      <ReactModal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)} />
       <TitlesContentStyled>
         <p><FaReact className='reactjs-icon' /></p>
         <p>Identificação</p>
@@ -62,39 +58,8 @@ export const ColaboradorComponent = ({data}: {data: IColaboradorProps[] | []}) =
         <p>Cargo</p>
         <p>Ações</p>
       </TitlesContentStyled>
-    
-      { data.map( user => 
-        <ColaboradorContentStyled key={`${user.id}`} clicked={isClicked}>
-          <ColaboradorDataContent>
-            <HiChevronRight onClick={toggleClick} className='seta'/>
-            <p>{user.identificacao}</p>
-            <p>{user.nome}</p>
-            <p>{user.cargo}</p>
-            <p><MdModeEdit className='edit' /><MdDelete className='remove' /></p>
-          </ ColaboradorDataContent>
-          <div className='colaborador-hidden-content'>
-            <div className='colaborador-extra-content'>
-              <h3>Dados</h3>
-              <p>Username: {user.username}</p>
-              <p>Autorizado: {user.autorizado}</p>
-            </div>
-            <div className='colaborador-celular-content'>
-              <h3>Celular</h3>
-              <p>Marca: {user?.celular?.marca}</p>
-              <p>Modelo: {user?.celular?.modelo}</p>
-              <p>Imei1: {user.celular?.imeis.imei1}</p>
-              <p>Imei2: {user?.celular?.imeis?.imei2}</p>
-            </div>
-            <div className='colaborador-notebook-content'>
-              <h3>Notebook</h3>
-              <p>Marca: {user?.notebook?.marca}</p>
-              <p>Modelo: {user.notebook?.modelo}</p>
-              <p>Numero de serie: {user.notebook?.numeroSerie}</p>
-              <p>Patrimônio: {user.notebook?.numeroSerie}</p>
-            </div>
-          </div>
-        </ColaboradorContentStyled>
-      ) }
+      
+      { data.map( user => <ColaboradorUser user={user} key={`${user.id}`}/> ) } 
       
     </ColaboradorContainerStyled>
       )

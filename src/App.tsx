@@ -6,8 +6,15 @@ import { Home } from './pages/Home';
 import { Admin } from "./pages/Admin/index"
 import {GlobalContextProvider} from "./contexts/GlobalContext"
 import { ProtectedRoute } from './components/ProtectedRoute';
+import ReactModal from 'react-modal';
+
+
+
 
 function App() {
+  
+  ReactModal.setAppElement(document.getElementById("root") as HTMLDivElement)
+  
   
   return (
     <>

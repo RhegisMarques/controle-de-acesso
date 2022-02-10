@@ -46,8 +46,7 @@ interface IColaboradorProps {
 export const Colaboradores = () => {
   const [usersData, setUsersData] = React.useState<IColaboradorProps[]>([ {} as IColaboradorProps]) 
   const { setLoad } = React.useContext(GlobalContext)
-  
-  
+ 
   React.useEffect( ()=> {
     setLoad(true)
     AxiosApi.get("colaboradores")

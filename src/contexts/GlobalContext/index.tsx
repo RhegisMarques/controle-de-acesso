@@ -22,7 +22,9 @@ interface IGlobaContextProps {
   mainAdminHomeWidth: number;
   setMainAdminHomeWidth: (w:number) => void;
   userData: UserProps,
-  setUserData: (data: UserProps)=>void
+  setUserData: (data: UserProps)=>void;
+  modalIsOpen: boolean;
+  setModalIsOpen: (open: boolean)=> void
 }
 
 interface IGlobalContextProviderProps {
@@ -37,7 +39,8 @@ export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
   const [load, setLoad] = React.useState<boolean>(false)
   const [login, setLogin] = React.useState<boolean>(false)
   const [mainAdminHomeWidth, setMainAdminHomeWidth] = React.useState<number>(40)
-  const [userData, setUserData] = React.useState({} as UserProps)  
+  const [userData, setUserData] = React.useState({} as UserProps) 
+  const [modalIsOpen, setModalIsOpen] = React.useState(true)
   
   React.useEffect(()=> {
     setLogin(false)
@@ -56,7 +59,8 @@ export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
     load, setLoad,
     login, setLogin,
     mainAdminHomeWidth, setMainAdminHomeWidth,
-    userData, setUserData
+    userData, setUserData,
+    modalIsOpen, setModalIsOpen
   }}>
     {props.children}
   </ GlobalContext.Provider>

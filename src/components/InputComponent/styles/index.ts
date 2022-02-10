@@ -33,6 +33,8 @@ span{
   transition: all .2s;
   display: block;
   pointer-events: none;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 svg{

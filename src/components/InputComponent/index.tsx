@@ -1,5 +1,5 @@
 import React, { RefObject } from 'react';
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle, FaAngleRight } from 'react-icons/fa';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import {InputLabelStyled, InputStyled} from "./styles"
 import {ImSearch} from 'react-icons/im'
@@ -8,7 +8,7 @@ import {ImSearch} from 'react-icons/im'
 type InputProps = {
   placeHolder: string;
   type: string;
-  iconType: "login" | "password" | "search";
+  iconType?: "login" | "password" | "search";
   inpRef?: RefObject<HTMLInputElement>
 }
 
@@ -50,7 +50,7 @@ export const InputComponent = ({iconType, placeHolder, type, inpRef}: InputProps
         required
         />
       <span>{placeHolder}</span>
-      {icons[`${iconType}`]}
+      {iconType ? icons[`${iconType}`] : <FaAngleRight />}
     </ InputLabelStyled>
     )
   };

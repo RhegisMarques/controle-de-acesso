@@ -1,9 +1,13 @@
 .Modal {
-  background-color: red;
-}
-
-
-.Overlay{
-  background-color: red;
-
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid var(--gray-200);
+  background-color: var(--white);
+  overflow: auto;
 }

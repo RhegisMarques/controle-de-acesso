@@ -26,6 +26,7 @@ span {
 export const PerfilUserImg = styled.img`
 
 width: 45px;
+height: 45px;
 display: block;
 border-radius: 50%;
 

@@ -3,8 +3,6 @@ import { ColaboradorContainerStyled, TitlesContentStyled} from './styles';
 import {FaReact} from "react-icons/fa"
 import {ColaboradorUser} from "../ColaboradorUser"
 import { GlobalContext } from "../../contexts/GlobalContext"
-import ReactModal from "react-modal"
-
 
 
 
@@ -50,7 +48,7 @@ export const ColaboradorComponent = ({data}: {data: IColaboradorProps[] | []}) =
   
   return (
     <ColaboradorContainerStyled> 
-      <ReactModal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)} />
+      
       <TitlesContentStyled>
         <p><FaReact className='reactjs-icon' /></p>
         <p>Identificação</p>

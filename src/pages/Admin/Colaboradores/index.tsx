@@ -5,7 +5,7 @@ import { ColaboradorComponent } from '../../../components/ColaboradorComponent';
 import { ColaboradoresContainerStyled, WrapColaboradoresTitleStyled } from './styles';
 import { AxiosApi } from '../../../services/AxiosApi';
 import { GlobalContext }  from "../../../contexts/GlobalContext/index"
-
+import { MyModal } from '../../../components/MyModal';
 
 
 
@@ -63,6 +63,7 @@ export const Colaboradores = () => {
   
   return( 
     <ColaboradoresContainerStyled>
+      <MyModal />
       <WrapColaboradoresTitleStyled >
         <h2>Colaboradores</h2>
         <ButtonLogin  value='Novo Colaborador' />

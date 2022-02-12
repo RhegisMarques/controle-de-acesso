@@ -40,7 +40,6 @@ export const InputComponent = ({iconType, placeHolder, type, inpRef}: InputProps
   
   return(
     <InputLabelStyled value={value} focus={focus}>
-      <span>{placeHolder}</span>
       <InputStyled 
         ref={inpRef}
         type={type} 
@@ -50,6 +49,7 @@ export const InputComponent = ({iconType, placeHolder, type, inpRef}: InputProps
         onChange={handleValue}
         required
         />
+      <span>{placeHolder}</span>
       {icons[`${iconType}`]}
     </ InputLabelStyled>
     )

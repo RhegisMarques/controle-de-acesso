@@ -5,16 +5,16 @@ import modalStyles from "./styles/styles.module.css"
 import { ModalContentComponent } from "../ModalContentComponent"
 
 
+
+
+
+
 export const MyModal = () => {
-  const { modalIsOpen, setModalIsOpen } = React.useContext(GlobalContext)
-
-
-
-
+  const { modalIsOpen, setModalIsOpen, modalUserData } = React.useContext(GlobalContext)
 
   return (
-    <ReactModal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)} className={modalStyles.Modal}>
-      <ModalContentComponent />
+    <ReactModal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)} className={modalStyles.Modal} overlayClassName={modalStyles.Overlay}>
+      <ModalContentComponent user={modalUserData} />
     </ReactModal>
   )
 }

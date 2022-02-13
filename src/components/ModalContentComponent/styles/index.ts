@@ -2,6 +2,24 @@ import styled from "styled-components"
 
 export const ContainerModalContentStyled = styled.div`
 padding: 40px;
+position: relative;
+
+.close{
+  cursor: pointer;
+  position: absolute;
+  transition: all .2s;
+  right: 20px;
+  top: 15px;
+  border: 1px solid var(--gray-200);
+  border-radius: 3px;
+
+
+  :hover{
+    color: var(--blue)
+  }
+}
+
+
 
 fieldset{
   padding: 10px;
@@ -28,7 +46,7 @@ input[type="file"]{
 .colaborador-primeira-div{
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  margin: 10px 0;
+  margin: 15px 0;
   
   div:nth-child(2){
     margin-left: 10px;
@@ -38,7 +56,7 @@ input[type="file"]{
 
 
 .colaborador-segunda-div{
-  margin: 10px 0;
+  margin: 15px 0;
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
   
@@ -50,13 +68,13 @@ input[type="file"]{
 }
 
 .celular, .notebook{
-  margin: 10px 0;
+  margin: 15px 0;
 
   
   .wrapper1{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 10px 0;
+    margin: 15px 0;
 
     div + div{
       margin-left: 10px;

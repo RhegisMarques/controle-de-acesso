@@ -24,6 +24,7 @@ width: 100%;
 
 span{
   position: absolute;
+  
   color: ${({focus})=> focus ? "#0390d5" : "#9a9c9e" };
   left: 40px;
   top: ${(props)=> props.focus || props.value ? -9 : 12 }px;

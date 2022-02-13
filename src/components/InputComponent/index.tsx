@@ -8,16 +8,25 @@ import {ImSearch} from 'react-icons/im'
 type InputProps = {
   placeHolder: string;
   type: string;
+  userValue?: string;
+  readonly?: boolean;
   iconType?: "login" | "password" | "search";
   inpRef?: RefObject<HTMLInputElement>
 }
 
 
 
-export const InputComponent = ({iconType, placeHolder, type, inpRef}: InputProps) => {
+export const InputComponent = ({iconType, placeHolder, type, inpRef, userValue, readonly}: InputProps) => {
   const [focus, setFocus] = React.useState(false)
   const [value, setValue] = React.useState("")
   
+
+
+React.useEffect( ()=>{
+  if(userValue) setValue(userValue)
+}, [userValue] )
+
+
   const icons = {
     login: <FaUserCircle/>,
     password: <RiLockPasswordFill/>,
@@ -48,6 +57,7 @@ export const InputComponent = ({iconType, placeHolder, type, inpRef}: InputProps
         value={value}
         onChange={handleValue}
         required
+        readOnly={readonly}
         />
       <span>{placeHolder}</span>
       {iconType ? icons[`${iconType}`] : <FaAngleRight />}

@@ -5,8 +5,6 @@ import { ColaboradorComponent } from '../../../components/ColaboradorComponent';
 import { ColaboradoresContainerStyled, WrapColaboradoresTitleStyled } from './styles';
 import { AxiosApi } from '../../../services/AxiosApi';
 import { GlobalContext }  from "../../../contexts/GlobalContext/index"
-import { MyModal } from '../../../components/MyModal';
-
 
 
 
@@ -51,7 +49,6 @@ export const Colaboradores = () => {
     setLoad(true)
     AxiosApi.get("colaboradores")
     .then( response => {
-      console.log(response.data) 
       setUsersData(response.data)
       setLoad(false)
     })
@@ -63,7 +60,6 @@ export const Colaboradores = () => {
   
   return( 
     <ColaboradoresContainerStyled>
-      <MyModal />
       <WrapColaboradoresTitleStyled >
         <h2>Colaboradores</h2>
         <ButtonLogin  value='Novo Colaborador' />

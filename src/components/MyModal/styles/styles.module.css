@@ -1,3 +1,4 @@
+
 .Modal {
   position: absolute;
   top: 40px;
@@ -10,4 +11,14 @@
   border: 1px solid var(--gray-200);
   background-color: var(--white);
   overflow: auto;
+}
+
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, .5);
 }

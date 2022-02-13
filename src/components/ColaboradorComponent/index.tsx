@@ -2,7 +2,6 @@ import React from 'react';
 import { ColaboradorContainerStyled, TitlesContentStyled} from './styles';
 import {FaReact} from "react-icons/fa"
 import {ColaboradorUser} from "../ColaboradorUser"
-import { GlobalContext } from "../../contexts/GlobalContext"
 
 
 
@@ -43,8 +42,7 @@ interface IColaboradorProps {
 
 
 export const ColaboradorComponent = ({data}: {data: IColaboradorProps[] | []}) => {
-  const {modalIsOpen, setModalIsOpen} = React.useContext(GlobalContext)
-  
+ 
   
   return (
     <ColaboradorContainerStyled> 

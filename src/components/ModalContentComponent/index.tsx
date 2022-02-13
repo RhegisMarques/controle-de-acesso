@@ -1,19 +1,51 @@
 import React from 'react'
 import { InputComponent } from '../InputComponent'
 import {ContainerModalContentStyled} from "./styles"
+import { IoClose } from "react-icons/io5"
+import { GlobalContext } from "../../contexts/GlobalContext"
 
 
 
 
 
-export const ModalContentComponent = () => {
+interface IColaboradorProps {
+  id: string,
+  identificacao: string,
+  imgName?: string,
+  imgPath?: string,
+  username?: string, 
+  password?: string,
+  celular?: {
+    marca: string,
+    modelo: string,
+    imgName?: string,
+    id: string,
+    imeis: {
+      imei1: string,
+      imei2?: string
+    }
+  },
+  notebook?: {
+    marca: string,
+    modelo: string,
+    imgName?: string,
+    id: string,
+    numeroPatrimonio?: string,
+    numeroSerie: string,
+  },
+  nome: string, 
+  cargo?: string;
+  autorizado?: boolean,
+  created_at: Date,
+  updated_at: Date
+}
 
 
 
 
 
-
-
+export const ModalContentComponent = ({user}:{user: IColaboradorProps}) => {
+const { setModalIsOpen } = React.useContext(GlobalContext)
 
 
 
@@ -21,27 +53,28 @@ export const ModalContentComponent = () => {
   
   return (
     <ContainerModalContentStyled>
+      <IoClose className="close" onClick={()=> setModalIsOpen(false)} />
       <form action="">
     
         <fieldset >
           <legend>COLABORADOR</legend>
           <div className='colaborador-primeira-div'>
             <div>
-              <InputComponent type='text' placeHolder='Identificacao' />
+              <InputComponent type='text' placeHolder='Identificacao' userValue={user.identificacao}/>
             </div>
             <div>
-              <InputComponent type='text' placeHolder='Nome' />
+              <InputComponent type='text' placeHolder='Nome' userValue={user.nome} />
             </div>
             <div>
-              <InputComponent type='text' placeHolder='Cargo' />
+              <InputComponent type='text' placeHolder='Cargo' userValue={user.cargo}/>
             </div>
           </div>
           <div className='colaborador-segunda-div'>
             <div>
-              <InputComponent type='text' placeHolder='UserName' />
+              <InputComponent type='text' placeHolder='UserName' userValue={user.username} readonly={true}/>
             </div>
             <div>
-              <InputComponent type='password' placeHolder='Password' />
+              <InputComponent type='password' placeHolder='Password' userValue={user.password}/>
             </div>
             <div>
               <input type="file" />
@@ -55,19 +88,19 @@ export const ModalContentComponent = () => {
     
             <div className='wrapper1'>
               <div>
-                <InputComponent type='text' placeHolder='Marca' />
+                <InputComponent type='text' placeHolder='Marca' userValue={user.celular?.marca}/>
               </div>
               <div>
-                <InputComponent type='text' placeHolder='Modelo' />
+                <InputComponent type='text' placeHolder='Modelo' userValue={user.celular?.modelo}/>
               </div>
             </div>
     
             <div className='wrapper1'>
               <div>
-                <InputComponent type='number' placeHolder='Imei1' />
+                <InputComponent type='number' placeHolder='Imei1' userValue={user.celular?.imeis.imei1}/>
               </div>
               <div>
-                <InputComponent type='number' placeHolder='Imei2' />
+                <InputComponent type='number' placeHolder='Imei2'userValue={user.celular?.imeis.imei2}/>
               </div>
             </div>
     
@@ -83,19 +116,19 @@ export const ModalContentComponent = () => {
           <div className='notebook'>
             <div className='wrapper1'>
               <div>
-                <InputComponent type='text' placeHolder='Marca' />
+                <InputComponent type='text' placeHolder='Marca' userValue={user.notebook?.marca}/>
               </div>
               <div>
-                <InputComponent type='text' placeHolder='Modelo' />
+                <InputComponent type='text' placeHolder='Modelo' userValue={user.notebook?.modelo}/>
               </div>
             </div>
     
             <div className='wrapper1'>
               <div>
-                <InputComponent type='number' placeHolder='Patrimonio' />
+                <InputComponent type='number' placeHolder='Patrimonio' userValue={user.notebook?.numeroPatrimonio}/>
               </div>
               <div>
-                <InputComponent type='number' placeHolder='Numero de serie' />
+                <InputComponent type='text' placeHolder='Numero de serie' userValue={user.notebook?.numeroSerie}/>
               </div>
             </div>
     

@@ -9,9 +9,29 @@ type UserProps = {
   imgPath?: string,
   username?: string, 
   password?: string,
+  autorizado?: boolean,
+  celular?: {
+    marca: string,
+    modelo: string,
+    imgName?: string,
+    id: string,
+    imeis: {
+      imei1: string,
+      imei2?: string
+    }
+  },
+  notebook?: {
+    marca: string,
+    modelo: string,
+    imgName?: string,
+    id: string,
+    numeroPatrimonio?: string,
+    numeroSerie: string,
+  },
   nome: string, 
-  cargo?: string,
-  autorizado?: boolean
+  cargo?: string;
+  created_at: Date,
+  updated_at: Date
 }
 
 interface IGlobaContextProps {
@@ -23,6 +43,8 @@ interface IGlobaContextProps {
   setMainAdminHomeWidth: (w:number) => void;
   userData: UserProps,
   setUserData: (data: UserProps)=>void;
+  modalUserData: UserProps,
+  setModalUserData: (data: UserProps)=>void;
   modalIsOpen: boolean;
   setModalIsOpen: (open: boolean)=> void
 }
@@ -40,8 +62,13 @@ export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
   const [login, setLogin] = React.useState<boolean>(false)
   const [mainAdminHomeWidth, setMainAdminHomeWidth] = React.useState<number>(40)
   const [userData, setUserData] = React.useState({} as UserProps) 
-  const [modalIsOpen, setModalIsOpen] = React.useState(true)
+  const [modalUserData, setModalUserData] = React.useState({} as UserProps) 
+  const [modalIsOpen, setModalIsOpen] = React.useState(false)
   
+
+
+
+
   React.useEffect(()=> {
     setLogin(false)
     setLoad(true)
@@ -60,7 +87,8 @@ export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
     login, setLogin,
     mainAdminHomeWidth, setMainAdminHomeWidth,
     userData, setUserData,
-    modalIsOpen, setModalIsOpen
+    modalIsOpen, setModalIsOpen,
+    modalUserData, setModalUserData
   }}>
     {props.children}
   </ GlobalContext.Provider>

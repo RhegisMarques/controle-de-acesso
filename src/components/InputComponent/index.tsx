@@ -7,6 +7,7 @@ import {ImSearch} from 'react-icons/im'
 
 type InputProps = {
   placeHolder: string;
+  req?: boolean
   type: string;
   userValue?: string;
   readonly?: boolean;
@@ -16,7 +17,7 @@ type InputProps = {
 
 
 
-export const InputComponent = ({iconType, placeHolder, type, inpRef, userValue, readonly}: InputProps) => {
+export const InputComponent = ({iconType, placeHolder, req, type, inpRef, userValue, readonly}: InputProps) => {
   const [focus, setFocus] = React.useState(false)
   const [value, setValue] = React.useState("")
   
@@ -56,7 +57,7 @@ React.useEffect( ()=>{
         onBlur={handleBlur}
         value={value}
         onChange={handleValue}
-        required
+        required={req}
         readOnly={readonly}
         />
       <span>{placeHolder}</span>

@@ -4,6 +4,23 @@ export const ContainerModalContentStyled = styled.div`
 padding: 40px;
 position: relative;
 
+
+.container-btns{
+  display: flex;
+  justify-content: right;
+
+  button{
+    width: 150px;
+  }
+
+  button + button{
+    margin-left: 20px;
+  }
+}
+
+
+
+
 .close{
   cursor: pointer;
   position: absolute;

@@ -3,6 +3,7 @@ import { InputComponent } from '../InputComponent'
 import {ContainerModalContentStyled} from "./styles"
 import { IoClose } from "react-icons/io5"
 import { GlobalContext } from "../../contexts/GlobalContext"
+import { ButtonDefault } from '../ButtonDefault'
 
 
 
@@ -60,13 +61,13 @@ export const ModalContentComponent = ({user}:{user: IColaboradorProps}) => {
           <legend>COLABORADOR</legend>
           <div className='colaborador-primeira-div'>
             <div>
-              <InputComponent type='text' placeHolder='Identificacao' userValue={user.identificacao}/>
+              <InputComponent type='text' req={true} placeHolder='Identificacao' userValue={user.identificacao}/>
             </div>
             <div>
-              <InputComponent type='text' placeHolder='Nome' userValue={user.nome} />
+              <InputComponent type='text' req={true} placeHolder='Nome' userValue={user.nome} />
             </div>
             <div>
-              <InputComponent type='text' placeHolder='Cargo' userValue={user.cargo}/>
+              <InputComponent req={false} type='text' placeHolder='Cargo' userValue={user.cargo}/>
             </div>
           </div>
           <div className='colaborador-segunda-div'>
@@ -74,7 +75,7 @@ export const ModalContentComponent = ({user}:{user: IColaboradorProps}) => {
               <InputComponent type='text' placeHolder='UserName' userValue={user.username} readonly={true}/>
             </div>
             <div>
-              <InputComponent type='password' placeHolder='Password' userValue={user.password}/>
+              <InputComponent type='password' req={false} placeHolder='Password' userValue={user.password}/>
             </div>
             <div className='div-input-radios'>
               <p>Acesso com dispositivo ?</p>
@@ -93,63 +94,68 @@ export const ModalContentComponent = ({user}:{user: IColaboradorProps}) => {
           </div>
         </fieldset>
     
-        <fieldset>
+        { user.celular && <fieldset>
+      
           <legend>CELULAR</legend>
           <div className='celular'>
-    
+      
             <div className='wrapper1'>
               <div>
-                <InputComponent type='text' placeHolder='Marca' userValue={user.celular?.marca}/>
+                <InputComponent type='text' req={true} placeHolder='Marca' userValue={user.celular?.marca}/>
               </div>
               <div>
-                <InputComponent type='text' placeHolder='Modelo' userValue={user.celular?.modelo}/>
+                <InputComponent type='text' req={true} placeHolder='Modelo' userValue={user.celular?.modelo}/>
               </div>
             </div>
-    
+      
             <div className='wrapper1'>
               <div>
-                <InputComponent type='number' placeHolder='Imei1' userValue={user.celular?.imeis.imei1}/>
+                <InputComponent type='text' req={true} placeHolder='Imei1' userValue={user.celular?.imeis.imei1}/>
               </div>
               <div>
-                <InputComponent type='number' placeHolder='Imei2'userValue={user.celular?.imeis.imei2}/>
+                <InputComponent type='text' req={false} placeHolder='Imei2'userValue={user.celular?.imeis.imei2}/>
               </div>
             </div>
-    
+      
             <div>
               <input type="file" />
             </div>
           </div>
-    
-        </fieldset>
-    
-        <fieldset>
+      
+        </fieldset> }
+      
+        { user.notebook && <fieldset>
           <legend>NOTEBOOK</legend>
           <div className='notebook'>
             <div className='wrapper1'>
               <div>
-                <InputComponent type='text' placeHolder='Marca' userValue={user.notebook?.marca}/>
+                <InputComponent type='text' req={true} placeHolder='Marca' userValue={user.notebook?.marca}/>
               </div>
               <div>
-                <InputComponent type='text' placeHolder='Modelo' userValue={user.notebook?.modelo}/>
+                <InputComponent type='text' req={true} placeHolder='Modelo' userValue={user.notebook?.modelo}/>
               </div>
             </div>
-    
+        
             <div className='wrapper1'>
               <div>
-                <InputComponent type='number' placeHolder='Patrimonio' userValue={user.notebook?.numeroPatrimonio}/>
+                <InputComponent type='number' req={false} placeHolder='Patrimonio' userValue={user.notebook?.numeroPatrimonio}/>
               </div>
               <div>
-                <InputComponent type='text' placeHolder='Numero de serie' userValue={user.notebook?.numeroSerie}/>
+                <InputComponent type='text' req={true} placeHolder='Numero de serie' userValue={user.notebook?.numeroSerie}/>
               </div>
             </div>
-    
+        
             <div>
               <input type="file" />
             </div>
           </div>
-        </fieldset>
-    
+        </fieldset> }
+        
+        <div className='container-btns'>
+          <ButtonDefault value='Cancelar' click={()=> setModalIsOpen(false)} />
+          <ButtonDefault value='Salvar'/>
+        </div>
       </form>
     </ContainerModalContentStyled>
-    )
-  }
+        )
+      }

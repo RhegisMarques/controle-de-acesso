@@ -1,5 +1,5 @@
 import React, { FormEvent } from 'react';
-import { ButtonLogin } from '../../../components/ButtonDefault';
+import { ButtonDefault } from '../../../components/ButtonDefault';
 import { InputComponent } from '../../../components/InputComponent';
 import { LogoLogin } from '../../../components/LogoLogin';
 import { LoginContainer } from './styles';
@@ -55,7 +55,7 @@ export const Login = () => {
         <LogoLogin/>
         <InputComponent inpRef={userValue} iconType='login' type='text' placeHolder='UserName'/>
         <InputComponent inpRef={passwordValue} iconType='password' type='password' placeHolder='Password'/>
-        <ButtonLogin value='Logar'/>
+        <ButtonDefault value='Logar'/>
       </LoginContainer>
       <BannerLogin />
     </LoginPageContainer>

@@ -2,10 +2,11 @@ import React from 'react';
 import { ButtonDefaultStyled } from './styles';
 
 interface IButtonProps {
-  value : string
+  value : string;
+  click?: ()=> void
 }
 
 
-export const ButtonLogin = (props:IButtonProps) => {
-  return <ButtonDefaultStyled type='submit'>{props.value}</ButtonDefaultStyled>;
+export const ButtonDefault = (props:IButtonProps) => {
+  return <ButtonDefaultStyled onClick={props.click} type='submit'>{props.value}</ButtonDefaultStyled>;
 };

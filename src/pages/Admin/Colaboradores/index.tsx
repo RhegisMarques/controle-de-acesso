@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonLogin } from '../../../components/ButtonDefault';
+import { ButtonDefault } from '../../../components/ButtonDefault';
 import { SearchComponent } from '../../../components/SearchComponent';
 import { ColaboradorComponent } from '../../../components/ColaboradorComponent';
 import { ColaboradoresContainerStyled, WrapColaboradoresTitleStyled } from './styles';
@@ -50,8 +50,8 @@ export const Colaboradores = () => {
     AxiosApi.get("colaboradores")
     .then( response => {
       setUsersData(response.data)
-      setLoad(false)
-    })
+      console.log(response.data)
+    }).finally( ()=> setLoad(false) )  
   }, [] )
   
   
@@ -62,7 +62,7 @@ export const Colaboradores = () => {
     <ColaboradoresContainerStyled>
       <WrapColaboradoresTitleStyled >
         <h2>Colaboradores</h2>
-        <ButtonLogin  value='Novo Colaborador' />
+        <ButtonDefault  value='Novo Colaborador' />
       </WrapColaboradoresTitleStyled>
       <SearchComponent />
       <ColaboradorComponent data={usersData} />

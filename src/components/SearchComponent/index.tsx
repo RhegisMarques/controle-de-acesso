@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonLogin } from '../ButtonDefault';
+import { ButtonDefault } from '../ButtonDefault';
 import { InputComponent } from '../InputComponent';
 import { SearchFormStyled } from './styles';
 
@@ -13,7 +13,7 @@ export const SearchComponent = () => {
   return(
     <SearchFormStyled>
       <InputComponent placeHolder='Identificação/Nome' inpRef={inpSearch} type='text' iconType='search' />
-      <ButtonLogin value='Procurar' />
+      <ButtonDefault value='Procurar' />
     </SearchFormStyled>
     ) 
   };

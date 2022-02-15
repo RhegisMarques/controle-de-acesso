@@ -45,11 +45,11 @@ interface IColaboradorProps {
 
 
 export const ModalContentComponent = ({user}:{user: IColaboradorProps}) => {
-const { setModalIsOpen } = React.useContext(GlobalContext)
-
-
-
-
+  const { setModalIsOpen } = React.useContext(GlobalContext)
+  
+  
+  
+  
   
   return (
     <ContainerModalContentStyled>
@@ -75,6 +75,17 @@ const { setModalIsOpen } = React.useContext(GlobalContext)
             </div>
             <div>
               <InputComponent type='password' placeHolder='Password' userValue={user.password}/>
+            </div>
+            <div className='div-input-radios'>
+              <p>Acesso com dispositivo ?</p>
+              <div>
+                <input id='sim' name="autorizado" type="radio" value="true"/>
+                <label htmlFor="sim">Sim</label>
+              </div>
+              <div>
+                <input id='nao' name="autorizado" type="radio" value="false"/>
+                <label htmlFor="nao">Não</label>
+              </div>
             </div>
             <div>
               <input type="file" />

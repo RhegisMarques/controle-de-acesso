@@ -58,11 +58,32 @@ input[type="file"]{
 .colaborador-segunda-div{
   margin: 15px 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   
   div:nth-child(2) {
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+
+  .div-input-radios{
+    text-align: center;
+
+    p{
+      margin-bottom: 3px;
+    }
+
+    div{
+      width: 30%;
+      margin: 0;
+      display: inline-block;
+
+      label{
+        margin-left: 5px;
+      }
+      
+    }
+
   }
   
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ColaboradorContainerStyled, TitlesContentStyled} from './styles';
 import {FaReact} from "react-icons/fa"
-import {ColaboradorUser} from "../ColaboradorUser"
+import {ColaboradorItem} from "./ColaboradorItem"
 
 
 
@@ -55,7 +55,7 @@ export const ColaboradorComponent = ({data}: {data: IColaboradorProps[] | []}) =
         <p>Ações</p>
       </TitlesContentStyled>
       
-      { data.map( user => <ColaboradorUser user={user} key={`${user.id}`}/> ) } 
+      { data.map( user => <ColaboradorItem user={user} key={`${user.id}`}/> ) } 
       
     </ColaboradorContainerStyled>
       )

@@ -9,7 +9,7 @@ export const MenuAdmin = () => {
   const {setMainAdminHomeWidth, mainAdminHomeWidth} = React.useContext(GlobalContext)
   
   function handleMouseOver(){
-    setMainAdminHomeWidth(200)
+    setMainAdminHomeWidth(220)
   }
   
   

@@ -2,8 +2,8 @@ import React from 'react'
 import {HiChevronRight} from "react-icons/hi"
 import {MdDelete, MdModeEdit} from "react-icons/md"
 import {ColaboradorContentStyled, ColaboradorDataContent} from "./styles"
-import { GlobalContext } from "../../contexts/GlobalContext"
-import { MyModal } from '../MyModal'
+import { GlobalContext } from "../../../contexts/GlobalContext"
+import { MyModal } from '../../MyModal'
 
 interface IColaboradorProps {
   id: string,
@@ -41,7 +41,7 @@ interface IColaboradorProps {
 
 
 
-export const ColaboradorUser = ({user}: {user: IColaboradorProps}) => {
+export const ColaboradorItem = ({user}: {user: IColaboradorProps}) => {
   const [isClicked, setIsClicked] = React.useState(false)
   const {setModalIsOpen, setModalUserData} = React.useContext(GlobalContext)
 

@@ -2,6 +2,19 @@ import React, { createContext } from "react";
 import { AxiosApi } from "../../services/AxiosApi";
 
 
+
+type Celular= {
+  marca: string,
+  modelo: string,
+  imgName?: string,
+  id: string,
+  imeis: {
+    imei1: string,
+    imei2?: string
+  }
+}
+
+
 type UserProps = {
   id: string,
   identificacao: string,
@@ -10,16 +23,7 @@ type UserProps = {
   username?: string, 
   password?: string,
   autorizado: boolean,
-  celular?: {
-    marca: string,
-    modelo: string,
-    imgName?: string,
-    id: string,
-    imeis: {
-      imei1: string,
-      imei2?: string
-    }
-  },
+  celular?: Celular,
   notebook?: {
     marca: string,
     modelo: string,
@@ -46,7 +50,7 @@ interface IGlobaContextProps {
   modalUserData: UserProps,
   setModalUserData: (data: UserProps)=>void;
   modalIsOpen: boolean;
-  setModalIsOpen: (open: boolean)=> void
+  setModalIsOpen: (open: boolean)=> void;
 }
 
 interface IGlobalContextProviderProps {
@@ -65,10 +69,10 @@ export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
   const [modalUserData, setModalUserData] = React.useState({} as UserProps) 
   const [modalIsOpen, setModalIsOpen] = React.useState(false)
   
-
-
-
-
+  
+  
+  
+  
   React.useEffect(()=> {
     setLogin(false)
     setLoad(true)

@@ -61,10 +61,10 @@ export const Colaboradores = () => {
   return( 
     <ColaboradoresContainerStyled>
       <WrapColaboradoresTitleStyled >
-        <h2>Colaboradores</h2>
+        <h1>Colaboradores</h1>
         <ButtonDefault typeBtn='button'  value='Novo Colaborador' />
       </WrapColaboradoresTitleStyled>
-      <SearchComponent />
+      <SearchComponent placeHolderTxt='Identificação/Nome'/>
       <ColaboradorComponent data={usersData} />
     </ColaboradoresContainerStyled>
     )

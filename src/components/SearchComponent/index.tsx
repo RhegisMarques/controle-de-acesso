@@ -13,7 +13,7 @@ export const SearchComponent = () => {
   return(
     <SearchFormStyled>
       <InputComponent placeHolder='Identificação/Nome' inpRef={inpSearch} type='text' iconType='search' />
-      <ButtonDefault value='Procurar' />
+      <ButtonDefault value='Procurar' typeBtn='submit'/>
     </SearchFormStyled>
     ) 
   };

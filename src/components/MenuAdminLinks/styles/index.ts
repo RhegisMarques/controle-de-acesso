@@ -38,7 +38,7 @@ a.active, a.active > svg{
 svg{
   transition: all .2s;
   font-size: 1.5rem;
-  color: #252b38;
+  
 }
 
 

@@ -32,7 +32,7 @@ interface IColaboradorProps {
   },
   nome: string, 
   cargo?: string;
-  autorizado?: boolean,
+  autorizado: boolean,
   created_at: Date,
   updated_at: Date
 }
@@ -70,7 +70,7 @@ function handleModalIsOpen(data: IColaboradorProps){
           <div className='colaborador-extra-content'>
             <h3>Dados</h3>
             <p>Username: {user.username}</p>
-            <p>Autorizado: {user.autorizado}</p>
+            <p>Acesso com celular/notebook: {user.autorizado ? "Sim" : "Não"}</p>
           </div>
           <div className='colaborador-celular-content'>
             <h3>Celular</h3>

@@ -32,7 +32,7 @@ interface IColaboradorProps {
   },
   nome: string, 
   cargo?: string;
-  autorizado?: boolean,
+  autorizado: boolean,
   created_at: Date,
   updated_at: Date
 }

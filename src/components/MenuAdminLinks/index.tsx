@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { LinksContainer, LinksContent } from './styles';
 import { NavLink } from 'react-router-dom';
-import {FaUsers} from "react-icons/fa"
-import {GiHouseKeys, GiLockers} from "react-icons/gi"
+import {FaUsers, FaMobileAlt} from "react-icons/fa"
+import {GiHouseKeys, GiLockers, GiArchiveRegister} from "react-icons/gi"
+import {MdComputer, MdOutlineAppRegistration} from "react-icons/md"
 import {IoExit} from "react-icons/io5"
 import { GlobalContext } from '../../contexts/GlobalContext';
 
@@ -36,9 +37,33 @@ export const MenuAdminLinks = () => {
         </NavLink>
       </LinksContent>
       <LinksContent >
-        <NavLink to="/admin/controledechaves">
+        <NavLink to="/admin/notebooks" >
+          <MdComputer />
+          <span>Notebooks</span>
+        </ NavLink>
+      </LinksContent>
+      <LinksContent >
+        <NavLink to="/admin/celulares" >
+          <FaMobileAlt />
+          <span>Celulares</span>
+        </ NavLink>
+      </LinksContent>
+      <LinksContent >
+        <NavLink to="/admin/chaves">
           <GiHouseKeys />
-          <span>Controle de chaves</span>
+          <span>Chaves</span>
+        </NavLink>
+      </LinksContent>
+      <LinksContent >
+        <NavLink to="/admin/logchaves">
+          <GiArchiveRegister />
+          <span>Log Armarios</span>
+        </NavLink>
+      </LinksContent>
+      <LinksContent >
+        <NavLink to="/admin/logchaves">
+          <MdOutlineAppRegistration />
+          <span>Log celular/notebook</span>
         </NavLink>
       </LinksContent>
       <LinksContent >
@@ -46,7 +71,8 @@ export const MenuAdminLinks = () => {
           <IoExit />
           <span>Sair</span>
         </ NavLink>
-      </LinksContent>
+      </LinksContent> 
+     
     </LinksContainer>
     
     )

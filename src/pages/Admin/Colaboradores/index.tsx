@@ -35,7 +35,7 @@ interface IColaboradorProps {
   },
   nome: string, 
   cargo?: string;
-  autorizado?: boolean,
+  autorizado: boolean,
   created_at: Date,
   updated_at: Date
 }
@@ -62,7 +62,7 @@ export const Colaboradores = () => {
     <ColaboradoresContainerStyled>
       <WrapColaboradoresTitleStyled >
         <h2>Colaboradores</h2>
-        <ButtonDefault  value='Novo Colaborador' />
+        <ButtonDefault typeBtn='button'  value='Novo Colaborador' />
       </WrapColaboradoresTitleStyled>
       <SearchComponent />
       <ColaboradorComponent data={usersData} />

@@ -9,7 +9,7 @@ type UserProps = {
   imgPath?: string,
   username?: string, 
   password?: string,
-  autorizado?: boolean,
+  autorizado: boolean,
   celular?: {
     marca: string,
     modelo: string,

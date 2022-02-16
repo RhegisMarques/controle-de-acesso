@@ -55,7 +55,7 @@ export const Login = () => {
         <LogoLogin/>
         <InputComponent inpRef={userValue} iconType='login' type='text' placeHolder='UserName'/>
         <InputComponent inpRef={passwordValue} iconType='password' type='password' placeHolder='Password'/>
-        <ButtonDefault value='Logar'/>
+        <ButtonDefault value='Logar' typeBtn='submit'/>
       </LoginContainer>
       <BannerLogin />
     </LoginPageContainer>

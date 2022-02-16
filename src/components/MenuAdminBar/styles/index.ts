@@ -15,7 +15,7 @@ transition: width .2s;
 overflow: hidden;
 
 :hover{
-  width: 200px;
+  width: 220px;
 }
 
 .logoMl{

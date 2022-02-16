@@ -96,7 +96,9 @@ input[type="file"]{
       display: inline-block;
 
       label{
-        margin-left: 5px;
+        input{
+          margin-right: 5px;
+        }
       }
       
     }

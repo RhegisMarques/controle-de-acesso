@@ -36,7 +36,7 @@ interface IColaboradorProps {
   },
   nome: string, 
   cargo?: string;
-  autorizado?: boolean,
+  autorizado: boolean,
   created_at: Date,
   updated_at: Date
 }
@@ -47,11 +47,18 @@ interface IColaboradorProps {
 
 export const ModalContentComponent = ({user}:{user: IColaboradorProps}) => {
   const { setModalIsOpen } = React.useContext(GlobalContext)
+  const [radioSelected, setRadioSelected] = React.useState<boolean>( user.autorizado )
+
+
+  const valueInputRadio1 = false
+  const valueInputRadio2 = true
+
+function handleChangeRadio(e: React.ChangeEvent<HTMLInputElement>){
+  const booleanOFValue = (/true/i).test(e.currentTarget.value)
+  setRadioSelected(booleanOFValue)
+}
   
-  
-  
-  
-  
+
   return (
     <ContainerModalContentStyled>
       <IoClose className="close" onClick={()=> setModalIsOpen(false)} />
@@ -80,12 +87,18 @@ export const ModalContentComponent = ({user}:{user: IColaboradorProps}) => {
             <div className='div-input-radios'>
               <p>Acesso com dispositivo ?</p>
               <div>
-                <input id='sim' name="autorizado" type="radio" value="true"/>
-                <label htmlFor="sim">Sim</label>
+                <label >
+                  <input name="autorizado" type="radio"  value="true"  
+                    onChange={handleChangeRadio}
+                    checked={ valueInputRadio2 === radioSelected }/>
+                  Sim</label>
               </div>
               <div>
-                <input id='nao' name="autorizado" type="radio" value="false"/>
-                <label htmlFor="nao">Não</label>
+                <label >
+                  <input name="autorizado" type="radio" value="false" 
+                    onChange={handleChangeRadio}
+                    checked={ valueInputRadio1 === radioSelected } />
+                  Não</label>
               </div>
             </div>
             <div>
@@ -152,8 +165,8 @@ export const ModalContentComponent = ({user}:{user: IColaboradorProps}) => {
         </fieldset> }
         
         <div className='container-btns'>
-          <ButtonDefault value='Cancelar' click={()=> setModalIsOpen(false)} />
-          <ButtonDefault value='Salvar'/>
+          <ButtonDefault typeBtn='button' value='Cancelar' click={()=> setModalIsOpen(false)} />
+          <ButtonDefault value='Salvar' typeBtn='submit'/>
         </div>
       </form>
     </ContainerModalContentStyled>

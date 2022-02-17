@@ -20,8 +20,8 @@ type InputProps = {
 export const InputComponent = ({iconType, placeHolder, req, type, inpRef, inpValueProps, readonly} : InputProps) => {
   const [focus, setFocus] = React.useState(false)
   const [inputValue, setInputValue] = React.useState<string | undefined>(inpValueProps ? inpValueProps : "")
-
-
+  
+  
   const icons = {
     login: <FaUserCircle/>,
     password: <RiLockPasswordFill/>,
@@ -36,12 +36,12 @@ export const InputComponent = ({iconType, placeHolder, req, type, inpRef, inpVal
   function handleBlur(event: React.ChangeEvent<HTMLInputElement> ){
     setFocus(false)
   }
-
-function handleInputChange(e: React.ChangeEvent<HTMLInputElement>){
-  setInputValue(e.currentTarget.value)
-}
-
-
+  
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>){
+    setInputValue(e.currentTarget.value)
+  }
+  
+  
   
   return(
     <InputLabelStyled value={inputValue} focus={focus}>
@@ -54,7 +54,7 @@ function handleInputChange(e: React.ChangeEvent<HTMLInputElement>){
         onChange={handleInputChange}
         required={req}
         readOnly={readonly}
-        />
+    />
       <span>{placeHolder}</span>
       {iconType ? icons[`${iconType}`] : <FaAngleRight />}
     </ InputLabelStyled>

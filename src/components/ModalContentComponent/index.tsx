@@ -2,50 +2,18 @@ import React from 'react'
 import { InputComponent } from '../InputComponent'
 import {ContainerModalContentStyled} from "./styles"
 import { IoClose } from "react-icons/io5"
-import { GlobalContext } from "../../contexts/GlobalContext"
+import { GlobalContext, UserProps } from "../../contexts/GlobalContext"
 import { ButtonDefault } from '../ButtonDefault'
 
 
 
 
 
-interface IColaboradorProps {
-  id: string,
-  identificacao: string,
-  imgName?: string,
-  imgPath?: string,
-  username?: string, 
-  password?: string,
-  celular?: {
-    marca: string,
-    modelo: string,
-    imgName?: string,
-    id: string,
-    imeis: {
-      imei1: string,
-      imei2?: string
-    }
-  },
-  notebook?: {
-    marca: string,
-    modelo: string,
-    imgName?: string,
-    id: string,
-    numeroPatrimonio?: string,
-    numeroSerie: string,
-  },
-  nome: string, 
-  cargo?: string;
-  autorizado: boolean,
-  created_at: Date,
-  updated_at: Date
-}
 
 
 
 
-
-export const ModalContentComponent = ({user}:{user: IColaboradorProps}) => {
+export const ModalContentComponent = ({user}:{user: UserProps}) => {
   const { setModalIsOpen } = React.useContext(GlobalContext)
   const [radioSelected, setRadioSelected] = React.useState<boolean>( user.autorizado )
 
@@ -68,21 +36,21 @@ function handleChangeRadio(e: React.ChangeEvent<HTMLInputElement>){
           <legend>COLABORADOR</legend>
           <div className='colaborador-primeira-div'>
             <div>
-              <InputComponent type='text' req={true} placeHolder='Identificacao' userValue={user.identificacao}/>
+              <InputComponent type='text' req={true} placeHolder='Identificacao' inpValueProps={user.identificacao}/>
             </div>
             <div>
-              <InputComponent type='text' req={true} placeHolder='Nome' userValue={user.nome} />
+              <InputComponent type='text' req={true} placeHolder='Nome' inpValueProps={user.nome} />
             </div>
             <div>
-              <InputComponent req={false} type='text' placeHolder='Cargo' userValue={user.cargo}/>
+              <InputComponent req={false} type='text' placeHolder='Cargo' inpValueProps={user.cargo}/>
             </div>
           </div>
           <div className='colaborador-segunda-div'>
             <div>
-              <InputComponent type='text' placeHolder='UserName' userValue={user.username} readonly={true}/>
+              <InputComponent type='text' placeHolder='UserName' inpValueProps={user.username} readonly={true}/>
             </div>
             <div>
-              <InputComponent type='password' req={false} placeHolder='Password' userValue={user.password}/>
+              <InputComponent type='password' req={false} placeHolder='Password' inpValueProps={user.password}/>
             </div>
             <div className='div-input-radios'>
               <p>Acesso com dispositivo ?</p>
@@ -114,19 +82,19 @@ function handleChangeRadio(e: React.ChangeEvent<HTMLInputElement>){
       
             <div className='wrapper1'>
               <div>
-                <InputComponent type='text' req={true} placeHolder='Marca' userValue={user.celular?.marca}/>
+                <InputComponent type='text' req={true} placeHolder='Marca' inpValueProps={user.celular?.marca}/>
               </div>
               <div>
-                <InputComponent type='text' req={true} placeHolder='Modelo' userValue={user.celular?.modelo}/>
+                <InputComponent type='text' req={true} placeHolder='Modelo' inpValueProps={user.celular?.modelo}/>
               </div>
             </div>
       
             <div className='wrapper1'>
               <div>
-                <InputComponent type='text' req={true} placeHolder='Imei1' userValue={user.celular?.imeis.imei1}/>
+                <InputComponent type='text' req={true} placeHolder='Imei1' inpValueProps={user.celular?.imeis.imei1}/>
               </div>
               <div>
-                <InputComponent type='text' req={false} placeHolder='Imei2'userValue={user.celular?.imeis.imei2}/>
+                <InputComponent type='text' req={false} placeHolder='Imei2' inpValueProps={user.celular?.imeis.imei2}/>
               </div>
             </div>
       
@@ -142,19 +110,19 @@ function handleChangeRadio(e: React.ChangeEvent<HTMLInputElement>){
           <div className='notebook'>
             <div className='wrapper1'>
               <div>
-                <InputComponent type='text' req={true} placeHolder='Marca' userValue={user.notebook?.marca}/>
+                <InputComponent type='text' req={true} placeHolder='Marca' inpValueProps={user.notebook?.marca}/>
               </div>
               <div>
-                <InputComponent type='text' req={true} placeHolder='Modelo' userValue={user.notebook?.modelo}/>
+                <InputComponent type='text' req={true} placeHolder='Modelo' inpValueProps={user.notebook?.modelo}/>
               </div>
             </div>
         
             <div className='wrapper1'>
               <div>
-                <InputComponent type='number' req={false} placeHolder='Patrimonio' userValue={user.notebook?.numeroPatrimonio}/>
+                <InputComponent type='number' req={false} placeHolder='Patrimonio' inpValueProps={user.notebook?.numeroPatrimonio}/>
               </div>
               <div>
-                <InputComponent type='text' req={true} placeHolder='Numero de serie' userValue={user.notebook?.numeroSerie}/>
+                <InputComponent type='text' req={true} placeHolder='Numero de serie' inpValueProps={user.notebook?.numeroSerie}/>
               </div>
             </div>
         

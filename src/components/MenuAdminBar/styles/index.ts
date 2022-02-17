@@ -21,6 +21,7 @@ overflow: hidden;
 .logoMl{
   width: 200px;
   display: block;
+  margin: 0 auto;
   opacity: ${ (props)=> props.sizeBar === 40 ? 0 : 1  };
   transition: all .2s;
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import { ColaboradorContainerStyled, TitlesContentStyled} from './styles';
 import {FaReact} from "react-icons/fa"
 import {ColaboradorItem} from "./ColaboradorItem"
+import { MyModal } from '../MyModal';
+import { ModalContentComponent } from "../ModalContentComponent"
 
 
 
@@ -42,7 +44,7 @@ interface IColaboradorProps {
 
 
 export const ColaboradorComponent = ({data}: {data: IColaboradorProps[] | []}) => {
- 
+
   
   return (
     <ColaboradorContainerStyled> 

@@ -5,6 +5,8 @@ import { ColaboradorComponent } from '../../../components/ColaboradorComponent';
 import { ColaboradoresContainerStyled, WrapColaboradoresTitleStyled } from './styles';
 import { AxiosApi } from '../../../services/AxiosApi';
 import { GlobalContext }  from "../../../contexts/GlobalContext/index"
+import { MyModal } from '../../../components/MyModal';
+import { ModalContentComponent } from '../../../components/ModalContentComponent';
 
 
 
@@ -43,14 +45,13 @@ interface IColaboradorProps {
 
 export const Colaboradores = () => {
   const [usersData, setUsersData] = React.useState<IColaboradorProps[]>([ {} as IColaboradorProps]) 
-  const { setLoad } = React.useContext(GlobalContext)
- 
+  const { setLoad, modalUserData } = React.useContext(GlobalContext)
+  
   React.useEffect( ()=> {
     setLoad(true)
     AxiosApi.get("colaboradores")
     .then( response => {
       setUsersData(response.data)
-      console.log(response.data)
     }).finally( ()=> setLoad(false) )  
   }, [] )
   
@@ -60,6 +61,9 @@ export const Colaboradores = () => {
   
   return( 
     <ColaboradoresContainerStyled>
+      <MyModal >
+        <ModalContentComponent user={modalUserData} />
+      </MyModal>
       <WrapColaboradoresTitleStyled >
         <h1>Colaboradores</h1>
         <ButtonDefault typeBtn='button'  value='Novo Colaborador' />

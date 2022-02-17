@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 interface IInputProps{
   focus: boolean;
-  value: string;
+  value: string | undefined;
 }
 
 

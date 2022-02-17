@@ -2,26 +2,25 @@ import React from 'react'
 import {ContainerStyled} from "./styles"
 import {HiChevronRight} from "react-icons/hi"
 import {MdDelete, MdModeEdit} from "react-icons/md"
+import { ICelular, GlobalContext } from "../../../contexts/GlobalContext"
 
 
 
 
-type Celular= {
-  marca: string,
-  modelo: string,
-  imgName?: string,
-  id: string,
-  imeis: {
-    imei1: string,
-    imei2?: string
-  }
+
+
+export const CelularItem = ({data}:{data: ICelular}) => {
+const { setModalCelularData, setModalIsOpen } = React.useContext(GlobalContext)
+    
+
+
+function handleClick(){
+  setModalCelularData(data)
+  setModalIsOpen(true)
 }
 
 
 
-
-
-export const CelularItem = ({data}:{data: Celular}) => {
   return (
     <ContainerStyled>
       <HiChevronRight className='seta'/>
@@ -30,7 +29,7 @@ export const CelularItem = ({data}:{data: Celular}) => {
       <p>{data.imeis.imei1}</p>
       <p>{data.imeis.imei2}</p>
       <div>
-        <MdModeEdit />
+        <MdModeEdit onClick={handleClick}/>
         <MdDelete className='remove' />
       </div>
     </ContainerStyled>

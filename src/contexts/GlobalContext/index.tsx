@@ -3,19 +3,30 @@ import { AxiosApi } from "../../services/AxiosApi";
 
 
 
-type Celular= {
+export interface INotebook {
   marca: string,
   modelo: string,
   imgName?: string,
   id: string,
-  imeis: {
-    imei1: string,
-    imei2?: string
-  }
+  numeroPatrimonio?: string,
+  numeroSerie: string,
+}
+
+export interface IImeis {
+  imei1: string;
+    imei2?: string;
+}
+
+export interface ICelular {
+  marca: string,
+  modelo: string,
+  imgName?: string,
+  id: string,
+  imeis: IImeis
 }
 
 
-type UserProps = {
+export interface UserProps {
   id: string,
   identificacao: string,
   imgName?: string,
@@ -23,15 +34,8 @@ type UserProps = {
   username?: string, 
   password?: string,
   autorizado: boolean,
-  celular?: Celular,
-  notebook?: {
-    marca: string,
-    modelo: string,
-    imgName?: string,
-    id: string,
-    numeroPatrimonio?: string,
-    numeroSerie: string,
-  },
+  celular?: ICelular,
+  notebook?: INotebook,
   nome: string, 
   cargo?: string;
   created_at: Date,
@@ -51,6 +55,8 @@ interface IGlobaContextProps {
   setModalUserData: (data: UserProps)=>void;
   modalIsOpen: boolean;
   setModalIsOpen: (open: boolean)=> void;
+  modalCelularData: ICelular;
+  setModalCelularData: (data: ICelular)=> void
 }
 
 interface IGlobalContextProviderProps {
@@ -68,6 +74,7 @@ export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
   const [userData, setUserData] = React.useState({} as UserProps) 
   const [modalUserData, setModalUserData] = React.useState({} as UserProps) 
   const [modalIsOpen, setModalIsOpen] = React.useState(false)
+  const [modalCelularData, setModalCelularData] = React.useState<ICelular>({} as ICelular)
   
   
   
@@ -92,7 +99,9 @@ export const GlobalContextProvider = (props: IGlobalContextProviderProps) => {
     mainAdminHomeWidth, setMainAdminHomeWidth,
     userData, setUserData,
     modalIsOpen, setModalIsOpen,
-    modalUserData, setModalUserData
+    modalUserData, setModalUserData,
+    modalCelularData, setModalCelularData
+    
   }}>
     {props.children}
   </ GlobalContext.Provider>

@@ -9,23 +9,17 @@ type InputProps = {
   placeHolder: string;
   req?: boolean
   type: string;
-  userValue?: string;
+  inpValueProps?: string;
   readonly?: boolean;
   iconType?: "login" | "password" | "search";
-  inpRef?: RefObject<HTMLInputElement>
+  inpRef?: RefObject<HTMLInputElement>;
 }
 
 
 
-export const InputComponent = ({iconType, placeHolder, req, type, inpRef, userValue, readonly}: InputProps) => {
+export const InputComponent = ({iconType, placeHolder, req, type, inpRef, inpValueProps, readonly} : InputProps) => {
   const [focus, setFocus] = React.useState(false)
-  const [value, setValue] = React.useState("")
-  
-
-
-React.useEffect( ()=>{
-  if(userValue) setValue(userValue)
-}, [userValue] )
+  const [inputValue, setInputValue] = React.useState<string | undefined>(inpValueProps ? inpValueProps : "")
 
 
   const icons = {
@@ -42,21 +36,22 @@ React.useEffect( ()=>{
   function handleBlur(event: React.ChangeEvent<HTMLInputElement> ){
     setFocus(false)
   }
-  
-  function handleValue(event: React.ChangeEvent<HTMLInputElement>){
-    setValue(event.target.value)
-  }
-  
+
+function handleInputChange(e: React.ChangeEvent<HTMLInputElement>){
+  setInputValue(e.currentTarget.value)
+}
+
+
   
   return(
-    <InputLabelStyled value={value} focus={focus}>
+    <InputLabelStyled value={inputValue} focus={focus}>
       <InputStyled 
         ref={inpRef}
         type={type} 
         onFocus={handleFocus}
         onBlur={handleBlur}
-        value={value}
-        onChange={handleValue}
+        value={inputValue}
+        onChange={handleInputChange}
         required={req}
         readOnly={readonly}
         />

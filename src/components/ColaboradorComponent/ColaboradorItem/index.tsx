@@ -3,7 +3,6 @@ import {HiChevronRight} from "react-icons/hi"
 import {MdDelete, MdModeEdit} from "react-icons/md"
 import {ColaboradorContentStyled, ColaboradorDataContent} from "./styles"
 import { GlobalContext } from "../../../contexts/GlobalContext"
-import { MyModal } from '../../MyModal'
 
 interface IColaboradorProps {
   id: string,
@@ -57,7 +56,6 @@ function handleModalIsOpen(data: IColaboradorProps){
 
   return (
     <>
-      <MyModal />
       <ColaboradorContentStyled clicked={isClicked} >
         <ColaboradorDataContent>
           <HiChevronRight onClick={toggleClick} className='seta' id={user.id}/>

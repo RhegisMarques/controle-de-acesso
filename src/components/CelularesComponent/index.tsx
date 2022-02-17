@@ -4,8 +4,6 @@ import {FaReact} from "react-icons/fa"
 import {CelularItem} from "./CelularItem"
 
 
-
-
 type Celular= {
   marca: string,
   modelo: string,
@@ -31,7 +29,7 @@ export const CelularesComponent = ({data}:{data: Celular[] | []}) => {
         <p>Ações</p>
       </TitlesContentStyled>
 
-      {data.map( (celular) => <CelularItem data={celular} /> )} 
+      {data.map( (celular) => <CelularItem data={celular} key={celular.id} /> )} 
       
     </ContainerStyled>
   )

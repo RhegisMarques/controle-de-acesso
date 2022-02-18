@@ -20,6 +20,14 @@ export const CelularContentModal = ({data}:{data:ICelular}) => {
   formData.append("id", data.id)
 
 
+  React.useEffect( ()=> {
+    formData.append("marca", marca) 
+    formData.append("modelo", modelo) 
+    formData.append("imei1", imei1)
+    imei2 && formData.append("imei2", imei2)  
+  }, [marca, modelo, imei1, imei2] )
+
+
   async function update(){
     setLoad(true)
     try {
@@ -35,12 +43,11 @@ export const CelularContentModal = ({data}:{data:ICelular}) => {
       setLoad(false)
       setModalIsOpen(false)
     }
-
   }
   
 
 
-  function handleInputFile(e: React.ChangeEvent<HTMLInputElement>){
+  function handleChangeInputFile(e: React.ChangeEvent<HTMLInputElement>){
     if(e.currentTarget.files){
       formData.append("file", e.currentTarget.files[0])
     }
@@ -61,20 +68,20 @@ export const CelularContentModal = ({data}:{data:ICelular}) => {
         <legend>Celular</legend>
         <div className='wrapper-atributos-celular'>
           <div>
-            <input type="text" required placeholder='Marca' onChange={ function(e){setMarca(e.currentTarget.value); formData.append("marca", marca) } } value={marca} />
+            <input type="text" required placeholder='Marca' onChange={ function(e){setMarca(e.currentTarget.value) } } value={marca} />
           </div>
           <div>
-            <input type="text" required placeholder='Modelo' onChange={ function(e){setModelo(e.currentTarget.value); formData.append("modelo", modelo) } } value={modelo}/>
+            <input type="text" required placeholder='Modelo' onChange={ function(e){setModelo(e.currentTarget.value) } } value={modelo}/>
           </div>
           <div>
-            <input type="text" required placeholder='Imei1'onChange={ function(e){setImei1(e.currentTarget.value); formData.append("imei1", imei1) } } value={imei1}/>
+            <input type="text" required placeholder='Imei1'onChange={ function(e){setImei1(e.currentTarget.value) } } value={imei1}/>
           </div>
           <div>
-            <input type="text" placeholder='Imei2'onChange={ function(e){setImei2(e.currentTarget.value); imei2 && formData.append("imei2", imei2) } } value={imei2}/>
+            <input type="text" placeholder='Imei2'onChange={ function(e){setImei2(e.currentTarget.value) } } value={imei2}/>
           </div>
         </div>
         <div className='div-input-file'>
-          <input accept="image/*" type="file" onChange={ handleInputFile } />
+          <input accept="image/*" type="file" onChange={ handleChangeInputFile } />
         </div>
       </WrapperCelular>
       <div className='div-btns'>

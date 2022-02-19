@@ -1,6 +1,5 @@
 import React, { FormEvent } from 'react';
 import { ButtonDefault } from '../../../components/ButtonDefault';
-import { InputComponent } from '../../../components/InputComponent';
 import { LogoLogin } from '../../../components/LogoLogin';
 import { LoginContainer } from './styles';
 import { BannerLogin } from '../../../components/BannerLogin';
@@ -9,6 +8,8 @@ import { AxiosApi } from '../../../services/AxiosApi';
 import {GlobalContext} from "../../../contexts/GlobalContext"
 import { useNavigate } from 'react-router';
 import { useMutation } from "react-query"
+import {FaUserCircle} from "react-icons/fa"
+import {RiLockPasswordFill} from "react-icons/ri"
 
 
 
@@ -16,19 +17,20 @@ import { useMutation } from "react-query"
 
 export const Login = () => {
   
-  const userValue = React.useRef<HTMLInputElement>(null) 
-  const passwordValue = React.useRef<HTMLInputElement>(null) 
   const {setLoad, setLogin, login, setUserData} = React.useContext(GlobalContext)
   const navegate = useNavigate()
-  const [password, setPassword] = React.useState<string | undefined>("")
-  const [username, setUserName] = React.useState<string | undefined>("")
+  const [hasError, setHasError] = React.useState<boolean>(false)
+  const [password, setPassword] = React.useState<string>("")
+  const [username, setUserName] = React.useState<string>("")
+  const [userNameFocus, setUserNameFocus] = React.useState(false)
+  const [passwordFocus, setPasswordFocus] = React.useState(false)
   
   React.useEffect( ()=> {
     if(login) navegate("/admin", {replace: true})
   }, [login, navegate] )
   
   
-  const { } = useMutation(singIn)
+  const {} = useMutation(singIn)
   
   
   async function singIn(){
@@ -37,21 +39,23 @@ export const Login = () => {
       const {data} = await AxiosApi.post("/login", {username, password}) 
       window.sessionStorage.setItem("token", data.token)
       window.sessionStorage.setItem("nome", data.user.nome)
+      setHasError(false)
       setUserData(data)
       setLogin(true)
     } catch (error) {
       console.log(error)
       setLogin(false)
+      setHasError(true)
     }finally{
       setLoad(false)
     }
   }
   
   
-  async function useLogin(e: FormEvent){
+  
+  
+  async function handleSubmit(e: FormEvent){
     e.preventDefault()
-    setUserName(userValue.current?.value)
-    setPassword(passwordValue.current?.value)
     singIn()
   }
   
@@ -59,10 +63,39 @@ export const Login = () => {
   
   return (
     <LoginPageContainer>
-      <LoginContainer onSubmit={useLogin}>
+      <LoginContainer 
+        onSubmit={handleSubmit} 
+        error={hasError} 
+        inputUserNameValue={username} 
+        inputPasswordValue={password}
+        userNameFocus={userNameFocus}
+        passwordFocus={passwordFocus}
+        >
         <LogoLogin/>
-        <InputComponent inpRef={userValue} iconType='login' type='text'  placeHolder='UserName' />
-        <InputComponent inpRef={passwordValue} iconType='password' type='password' placeHolder='Password' />
+        <div className='wrapperInput'>
+          <label >
+            <span className='placeHolderUserName'>UserName</span>
+            <input type="text" 
+              className='inp-username'
+              onFocus={ ()=> setUserNameFocus(true) } 
+              onBlur={()=> setUserNameFocus(false)} value={username} 
+              onChange={(e)=> setUserName(e.target.value)} />
+          </label>
+          <FaUserCircle/>
+        </div>
+        <p className='login-error'>UserName ou Password não conferem</p>
+        <div className='wrapperInput'>
+          <label >
+            <span className='placeHolderPassword'>Password</span>
+            <input type="password" 
+              className='inp-password'
+              value={password} 
+              onChange={(e)=> setPassword(e.target.value)}
+              onFocus={ ()=> setPasswordFocus(true) } 
+              onBlur={()=> setPasswordFocus(false)} />
+            <RiLockPasswordFill />
+          </label>
+        </div>
         <ButtonDefault value='Logar' typeBtn='submit'/>
       </LoginContainer>
       <BannerLogin />

@@ -25,7 +25,6 @@ export const Celulares = () => {
     try {
       const response = await AxiosApi.get("celulares")
       setDataCelulares(response.data)
-      console.log(response.data)
     } catch (error) {
       console.log(error)
     }

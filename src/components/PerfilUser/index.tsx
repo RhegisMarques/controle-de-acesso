@@ -6,7 +6,8 @@ import { GlobalContext } from '../../contexts/GlobalContext';
 export const PerfilUser = () => {
   const { userData } = React.useContext(GlobalContext)
   const photo = "http://localhost:3000/public/img/uploads/" + userData.imgName
-  
+
+
   return (
     <PerfilUserContainer className='PerfilUserContainerImg' >
       <div className='gapPerfil'>

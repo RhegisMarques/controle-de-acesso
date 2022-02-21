@@ -1,31 +1,30 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 
 
+export const WrapperListStyled = styled.div`
 
-export const ContainerStyled = styled.div`
 
 background-color: white;
-margin-top: 30px;
-width: 100%;
+padding: 20px;
 border-radius: 5px;
 border: 1px solid var(--gray-200);
-padding: 30px;
-
-
 
 `;
 
 
 
+interface IWrapperTitleListProps {
+  TitleLegth: number
+}
 
-
-export const TitlesContentStyled = styled.div`
+export const WrapperTitleListStyled = styled.div<IWrapperTitleListProps>`
 
 border-bottom: 1px solid var(--gray-200);
 
 display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+grid-template-columns: 1fr repeat(${({TitleLegth}) => TitleLegth }, 2fr);
+
 
 p{
   font-weight: 600;
@@ -48,5 +47,7 @@ p{
   }
   
 }
+
+
 
 `;

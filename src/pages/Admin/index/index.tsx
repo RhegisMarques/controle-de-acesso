@@ -9,6 +9,11 @@ import { PerfilUserBar } from '../../../components/PerfilUserBar';
 
 export const Admin = () => {
   const { mainAdminHomeWidth} = useContext(GlobalContext)
+
+
+
+
+  
   return (
     <AdminContainer>
       <MenuAdmin />

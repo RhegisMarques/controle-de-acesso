@@ -40,8 +40,8 @@ export const Login = () => {
       window.sessionStorage.setItem("token", data.token)
       window.sessionStorage.setItem("nome", data.user.nome)
       setHasError(false)
-      setUserData(data)
       setLogin(true)
+      setUserData(data.user)
     } catch (error) {
       console.log(error)
       setLogin(false)

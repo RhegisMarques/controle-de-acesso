@@ -6,7 +6,9 @@ export const ContainerStyled = styled.div`
 padding: 30px 20px 0 20px;
 
 
-
+.wrapper-List{
+  margin-top: 30px;
+}
 
 
 `;

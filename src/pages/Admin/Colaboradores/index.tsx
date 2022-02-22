@@ -1,61 +1,37 @@
 import React from 'react';
 import { ButtonDefault } from '../../../components/ButtonDefault';
 import { SearchComponent } from '../../../components/SearchComponent';
-import { ColaboradorComponent } from '../../../components/ColaboradorComponent';
 import { ColaboradoresContainerStyled, WrapColaboradoresTitleStyled } from './styles';
 import { AxiosApi } from '../../../services/AxiosApi';
-import { GlobalContext }  from "../../../contexts/GlobalContext/index"
+import { GlobalContext, UserProps }  from "../../../contexts/GlobalContext/index"
 import { MyModal } from '../../../components/MyModal';
 import { ModalContentComponent } from '../../../components/ModalContentComponent';
+import { WrapperListComponet } from '../../../components/WrapperListComponent';
+import { ColaboradorItem } from '../../../components/ColaboradorItem';
+import { useQuery } from "react-query"
 
-
-
-interface IColaboradorProps {
-  id: string,
-  identificacao: string,
-  imgName?: string,
-  imgPath?: string,
-  username?: string, 
-  password?: string,
-  celular?: {
-    marca: string,
-    modelo: string,
-    imgName?: string,
-    id: string,
-    imeis: {
-      imei1: string,
-      imei2?: string
-    }
-  },
-  notebook?: {
-    marca: string,
-    modelo: string,
-    imgName?: string,
-    id: string,
-    numeroPatrimonio?: string,
-    numeroSerie: string,
-  },
-  nome: string, 
-  cargo?: string;
-  autorizado: boolean,
-  created_at: Date,
-  updated_at: Date
-}
 
 
 export const Colaboradores = () => {
-  const [usersData, setUsersData] = React.useState<IColaboradorProps[]>([ {} as IColaboradorProps]) 
+  const [usersData, setUsersData] = React.useState<UserProps[]>([ {} as UserProps]) 
   const { setLoad, modalUserData } = React.useContext(GlobalContext)
   
-  React.useEffect( ()=> {
+  
+  const titles = ["Identificação", "Nome", "Cargo", "Ações"]
+
+  
+  const {} = useQuery("colaboradores", async ()=> {
     setLoad(true)
-    AxiosApi.get("colaboradores")
-    .then( response => {
-      setUsersData(response.data)
-    }).finally( ()=> setLoad(false) )  
-  }, [] )
-  
-  
+    try {
+      const result = await AxiosApi.get("/colaboradores")
+      setUsersData(result.data)
+    } catch (error) {
+      console.log(error)
+    }finally{
+      setLoad(false)
+    }
+    
+  })
   
   
   
@@ -69,7 +45,9 @@ export const Colaboradores = () => {
         <ButtonDefault typeBtn='button'  value='Novo Colaborador' />
       </WrapColaboradoresTitleStyled>
       <SearchComponent placeHolderTxt='Identificação/Nome'/>
-      <ColaboradorComponent data={usersData} />
+      <WrapperListComponet titles={titles} columns={[1, 3, 1, 1]}>
+        {usersData.map( user =>  user.id && <ColaboradorItem user={user} key={`${user.id}`} />)}
+      </WrapperListComponet>
     </ColaboradoresContainerStyled>
     )
   };

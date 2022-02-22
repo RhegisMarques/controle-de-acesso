@@ -15,7 +15,7 @@ border: 1px solid var(--gray-200);
 
 
 interface IWrapperTitleListProps {
-  TitleLegth: number
+  columns: number[]
 }
 
 export const WrapperTitleListStyled = styled.div<IWrapperTitleListProps>`
@@ -23,7 +23,7 @@ export const WrapperTitleListStyled = styled.div<IWrapperTitleListProps>`
 border-bottom: 1px solid var(--gray-200);
 
 display: grid;
-grid-template-columns: 1fr repeat(${({TitleLegth}) => TitleLegth }, 2fr);
+grid-template-columns: 1fr ${({columns}) => columns.map( el => el + "fr " ) };
 
 
 p{

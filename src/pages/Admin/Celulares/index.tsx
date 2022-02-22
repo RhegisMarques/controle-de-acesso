@@ -46,7 +46,7 @@ export const Celulares = () => {
         <ButtonDefault typeBtn='button' value='Novo Celular' click={()=> setModalIsOpen(true)}/>
       </WrapperTitle>
       <SearchComponent placeHolderTxt='Celular' />
-      { dataCelulares.length > 0 && <WrapperListComponet titles={titles} >
+      { dataCelulares.length > 0 && <WrapperListComponet titles={titles} columns={[2, 2, 2, 2, 1] } >
         {dataCelulares.map( celular => <CelularComponet key={celular.id} data={celular} />)}
       </WrapperListComponet> }
     </ContainerStyled>

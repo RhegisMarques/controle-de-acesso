@@ -5,15 +5,15 @@ import {FaReact} from "react-icons/fa"
 
 
 
-export const WrapperListComponet = ({ children, titles }:{ children: React.ReactNode, titles: string[] }) => {
 
 
+export const WrapperListComponet = ({ children, titles, columns }:{ children: React.ReactNode, titles: string[], columns: number[] }) => {
 
 
-
+  
   return (
-    <WrapperListStyled className='wrapper-List'>
-      <WrapperTitleListStyled TitleLegth={titles.length}>
+    <WrapperListStyled className='wrapper-List'  >
+      <WrapperTitleListStyled columns={columns} >
         <FaReact className='reactjs-icon' />
         {titles.map( (title, i) => <p key={i}>{title}</p> )}
       </WrapperTitleListStyled>

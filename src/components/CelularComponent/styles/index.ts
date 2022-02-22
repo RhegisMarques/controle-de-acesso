@@ -88,7 +88,7 @@ interface IWrapperCelularDataProps {
 export const WrapperCelularData = styled.div<IWrapperCelularDataProps>`
 
 display: grid;
-grid-template-columns: 1fr repeat(5, 2fr);
+grid-template-columns: 1fr repeat(4, 2fr) 1fr;
 
 div{
   input{

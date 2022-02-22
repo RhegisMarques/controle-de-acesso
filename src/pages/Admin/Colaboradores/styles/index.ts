@@ -4,7 +4,14 @@ export const ColaboradoresContainerStyled = styled.div`
 
 width: 95%;
 margin: auto;
-color: var(--text)
+color: var(--text);
+
+
+
+.wrapper-List{
+  margin-top: 20px;
+}
+
 
 
 `;
